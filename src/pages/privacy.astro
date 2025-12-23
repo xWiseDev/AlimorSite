@@ -1,158 +1,227 @@
 ---
 import Layout from '../layouts/Layout.astro';
 
-const currentDate = new Date().toLocaleDateString('en-US', { 
-  year: 'numeric', 
-  month: 'long', 
-  day: 'numeric' 
+const currentDate = new Date().toLocaleDateString('en-US', {
+  year: 'numeric',
+  month: 'long',
+  day: 'numeric'
 });
 ---
 
-<Layout 
-  title="Privacy Policy - Alimor" 
+<Layout
+  title="Privacy Policy - Alimor"
   description="Alimor privacy policy - Your data stays on your device. We don't collect, sell, or share your personal information."
 >
 
-<nav class="fixed top-0 w-full z-50 glass">
-  <div class="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
-    <a href="/" class="flex items-center gap-3 hover:opacity-80 transition-opacity">
-      <img src="/icon.png" alt="Alimor Logo" class="w-10 h-10 rounded-xl" />
-      <span class="text-xl font-semibold text-alimor-purple">Alimor</span>
+<!-- Navigation -->
+<nav class="fixed top-0 w-full z-50 glass safe-area-top">
+  <div class="max-w-6xl mx-auto px-5 sm:px-6 py-3 sm:py-4 flex items-center justify-between">
+    <a href="/" class="flex items-center gap-2.5 hover:opacity-80 transition-opacity">
+      <img src="/icon.png" alt="Alimor" class="w-9 h-9 sm:w-10 sm:h-10 rounded-[10px] sm:rounded-xl shadow-sm" />
+      <span class="text-lg sm:text-xl font-semibold text-alimor-purple tracking-tight">Alimor</span>
     </a>
-    <a 
-      href="mailto:aboyahyadev@icloud.com" 
-      class="text-alimor-purple hover:text-alimor-purple-dark font-medium transition-colors"
+    <a
+      href="mailto:aboyahyadev@icloud.com"
+      class="touch-target flex items-center justify-center text-alimor-purple hover:text-alimor-purple-dark font-medium transition-colors text-sm sm:text-base"
     >
       Contact
     </a>
   </div>
 </nav>
 
-<main class="pt-32 pb-20 px-6">
+<!-- Hero Header -->
+<section class="pt-24 sm:pt-32 pb-10 sm:pb-14 px-5 sm:px-6 bg-gradient-to-b from-alimor-bg to-white">
+  <div class="max-w-3xl mx-auto text-center">
+    <div class="inline-flex items-center justify-center w-16 h-16 sm:w-20 sm:h-20 bg-alimor-purple/10 rounded-full mb-6">
+      <svg class="w-8 h-8 sm:w-10 sm:h-10 text-alimor-purple" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/>
+      </svg>
+    </div>
+    <h1 class="text-4xl sm:text-5xl font-bold tracking-tight mb-4">Privacy Policy</h1>
+    <p class="text-alimor-text-light text-sm sm:text-base">Last updated: {currentDate}</p>
+  </div>
+</section>
+
+<!-- Main Content -->
+<main class="pb-16 sm:pb-24 px-5 sm:px-6">
   <div class="max-w-3xl mx-auto">
-    <h1 class="text-5xl font-bold mb-4">Privacy Policy</h1>
-    <p class="text-alimor-text-light mb-12">Last updated: {currentDate}</p>
-    
-    <div class="prose prose-lg max-w-none">
-      <section class="mb-12">
-        <h2 class="text-3xl font-bold mb-4">Your Privacy Matters</h2>
-        <p class="text-lg text-alimor-text-light leading-relaxed mb-4">
-          Alimor is built with privacy at its core. We believe your food and mood data is deeply personal 
-          and should stay under your control.
-        </p>
+
+    <!-- Privacy Highlight Card -->
+    <div class="bg-gradient-to-br from-green-50 to-white rounded-3xl p-6 sm:p-8 mb-10 sm:mb-14 border border-green-100">
+      <div class="flex items-start gap-4">
+        <div class="w-12 h-12 bg-green-100 rounded-full flex items-center justify-center flex-shrink-0">
+          <svg class="w-6 h-6 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+          </svg>
+        </div>
+        <div>
+          <h2 class="text-xl sm:text-2xl font-bold mb-2">Your Privacy Matters</h2>
+          <p class="text-[15px] sm:text-base text-alimor-text-light leading-relaxed">
+            Alimor is built with privacy at its core. We believe your food and mood data is deeply personal
+            and should stay under your control.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Content Sections -->
+    <div class="space-y-10 sm:space-y-14">
+
+      <!-- Data Storage -->
+      <section>
+        <h2 class="text-2xl sm:text-3xl font-bold tracking-tight mb-4 sm:mb-5">Data Storage</h2>
+        <div class="space-y-4">
+          <p class="text-[15px] sm:text-lg text-alimor-text-light leading-relaxed">
+            <strong class="text-alimor-text">All your data stays on your device.</strong> Your food logs, mood entries, and patterns
+            are stored locally on your iPhone using Apple's secure storage frameworks.
+          </p>
+          <p class="text-[15px] sm:text-lg text-alimor-text-light leading-relaxed">
+            If you enable iCloud sync (optional), your data is encrypted and synced through your personal
+            iCloud account. We never have access to this data.
+          </p>
+        </div>
       </section>
 
-      <section class="mb-12">
-        <h2 class="text-3xl font-bold mb-4">Data Storage</h2>
-        <p class="text-lg text-alimor-text-light leading-relaxed mb-4">
-          <strong>All your data stays on your device.</strong> Your food logs, mood entries, and patterns 
-          are stored locally on your iPhone using Apple's secure storage frameworks.
-        </p>
-        <p class="text-lg text-alimor-text-light leading-relaxed">
-          If you enable iCloud sync (optional), your data is encrypted and synced through your personal 
-          iCloud account. We never have access to this data.
-        </p>
+      <!-- What We Don't Collect -->
+      <section>
+        <h2 class="text-2xl sm:text-3xl font-bold tracking-tight mb-4 sm:mb-5">What We Don't Collect</h2>
+        <div class="bg-white rounded-2xl border border-gray-100 divide-y divide-gray-100">
+          <div class="flex items-center gap-4 p-4 sm:p-5">
+            <span class="w-8 h-8 bg-red-50 rounded-full flex items-center justify-center flex-shrink-0">
+              <svg class="w-4 h-4 text-red-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
+            </span>
+            <span class="text-[15px] sm:text-base">We don't collect your food logs or mood data</span>
+          </div>
+          <div class="flex items-center gap-4 p-4 sm:p-5">
+            <span class="w-8 h-8 bg-red-50 rounded-full flex items-center justify-center flex-shrink-0">
+              <svg class="w-4 h-4 text-red-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
+            </span>
+            <span class="text-[15px] sm:text-base">We don't track your location</span>
+          </div>
+          <div class="flex items-center gap-4 p-4 sm:p-5">
+            <span class="w-8 h-8 bg-red-50 rounded-full flex items-center justify-center flex-shrink-0">
+              <svg class="w-4 h-4 text-red-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
+            </span>
+            <span class="text-[15px] sm:text-base">We don't sell your data to third parties</span>
+          </div>
+          <div class="flex items-center gap-4 p-4 sm:p-5">
+            <span class="w-8 h-8 bg-red-50 rounded-full flex items-center justify-center flex-shrink-0">
+              <svg class="w-4 h-4 text-red-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
+            </span>
+            <span class="text-[15px] sm:text-base">We don't use analytics or tracking pixels</span>
+          </div>
+          <div class="flex items-center gap-4 p-4 sm:p-5">
+            <span class="w-8 h-8 bg-red-50 rounded-full flex items-center justify-center flex-shrink-0">
+              <svg class="w-4 h-4 text-red-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
+            </span>
+            <span class="text-[15px] sm:text-base">We don't require an account or email address</span>
+          </div>
+        </div>
       </section>
 
-      <section class="mb-12">
-        <h2 class="text-3xl font-bold mb-4">What We Don't Collect</h2>
-        <ul class="space-y-3 text-lg text-alimor-text-light">
-          <li class="flex items-start gap-3">
-            <span class="text-alimor-purple">•</span>
-            <span>We don't collect your food logs or mood data</span>
-          </li>
-          <li class="flex items-start gap-3">
-            <span class="text-alimor-purple">•</span>
-            <span>We don't track your location</span>
-          </li>
-          <li class="flex items-start gap-3">
-            <span class="text-alimor-purple">•</span>
-            <span>We don't sell your data to third parties</span>
-          </li>
-          <li class="flex items-start gap-3">
-            <span class="text-alimor-purple">•</span>
-            <span>We don't use analytics or tracking pixels</span>
-          </li>
-          <li class="flex items-start gap-3">
-            <span class="text-alimor-purple">•</span>
-            <span>We don't require an account or email address</span>
-          </li>
-        </ul>
+      <!-- What We Do Collect -->
+      <section>
+        <h2 class="text-2xl sm:text-3xl font-bold tracking-tight mb-4 sm:mb-5">What We Do Collect</h2>
+        <div class="space-y-4">
+          <div class="bg-white rounded-2xl border border-gray-100 p-5 sm:p-6">
+            <h3 class="font-semibold mb-2">Crash reports (optional)</h3>
+            <p class="text-[15px] sm:text-base text-alimor-text-light leading-relaxed">
+              If you opt in, anonymous crash reports help us fix bugs.
+              These contain no personal information or food/mood data.
+            </p>
+          </div>
+          <div class="bg-white rounded-2xl border border-gray-100 p-5 sm:p-6">
+            <h3 class="font-semibold mb-2">Purchase information</h3>
+            <p class="text-[15px] sm:text-base text-alimor-text-light leading-relaxed">
+              If you subscribe to Alimor Pro, Apple processes your payment.
+              We only receive a receipt confirmation (no credit card details).
+            </p>
+          </div>
+        </div>
       </section>
 
-      <section class="mb-12">
-        <h2 class="text-3xl font-bold mb-4">What We Do Collect</h2>
-        <p class="text-lg text-alimor-text-light leading-relaxed mb-4">
-          <strong>Crash reports (optional):</strong> If you opt in, anonymous crash reports help us fix bugs. 
-          These contain no personal information or food/mood data.
-        </p>
-        <p class="text-lg text-alimor-text-light leading-relaxed">
-          <strong>Purchase information:</strong> If you subscribe to Alimor Pro, Apple processes your payment. 
-          We only receive a receipt confirmation (no credit card details).
-        </p>
+      <!-- Your Rights -->
+      <section>
+        <h2 class="text-2xl sm:text-3xl font-bold tracking-tight mb-4 sm:mb-5">Your Rights</h2>
+        <div class="bg-white rounded-2xl border border-gray-100 divide-y divide-gray-100">
+          <div class="flex items-start gap-4 p-4 sm:p-5">
+            <span class="w-8 h-8 bg-alimor-purple/10 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
+              <svg class="w-4 h-4 text-alimor-purple" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+            </span>
+            <div>
+              <span class="font-semibold block mb-1">Export your data</span>
+              <span class="text-[15px] sm:text-base text-alimor-text-light">Use the export feature to download all your entries as PDF or CSV</span>
+            </div>
+          </div>
+          <div class="flex items-start gap-4 p-4 sm:p-5">
+            <span class="w-8 h-8 bg-alimor-purple/10 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
+              <svg class="w-4 h-4 text-alimor-purple" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+            </span>
+            <div>
+              <span class="font-semibold block mb-1">Delete your data</span>
+              <span class="text-[15px] sm:text-base text-alimor-text-light">Uninstall the app to permanently delete all local data</span>
+            </div>
+          </div>
+          <div class="flex items-start gap-4 p-4 sm:p-5">
+            <span class="w-8 h-8 bg-alimor-purple/10 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
+              <svg class="w-4 h-4 text-alimor-purple" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+            </span>
+            <div>
+              <span class="font-semibold block mb-1">Disable iCloud sync</span>
+              <span class="text-[15px] sm:text-base text-alimor-text-light">Turn off sync in Settings to keep data device-only</span>
+            </div>
+          </div>
+        </div>
       </section>
 
-      <section class="mb-12">
-        <h2 class="text-3xl font-bold mb-4">Your Rights</h2>
-        <ul class="space-y-3 text-lg text-alimor-text-light">
-          <li class="flex items-start gap-3">
-            <span class="text-alimor-purple">•</span>
-            <span><strong>Export your data:</strong> Use the export feature to download all your entries as PDF or CSV</span>
-          </li>
-          <li class="flex items-start gap-3">
-            <span class="text-alimor-purple">•</span>
-            <span><strong>Delete your data:</strong> Uninstall the app to permanently delete all local data</span>
-          </li>
-          <li class="flex items-start gap-3">
-            <span class="text-alimor-purple">•</span>
-            <span><strong>Disable iCloud sync:</strong> Turn off sync in Settings to keep data device-only</span>
-          </li>
-        </ul>
-      </section>
-
-      <section class="mb-12">
-        <h2 class="text-3xl font-bold mb-4">Children's Privacy</h2>
-        <p class="text-lg text-alimor-text-light leading-relaxed">
+      <!-- Children's Privacy -->
+      <section>
+        <h2 class="text-2xl sm:text-3xl font-bold tracking-tight mb-4 sm:mb-5">Children's Privacy</h2>
+        <p class="text-[15px] sm:text-lg text-alimor-text-light leading-relaxed">
           Alimor is not intended for children under 13. We do not knowingly collect information from children.
         </p>
       </section>
 
-      <section class="mb-12">
-        <h2 class="text-3xl font-bold mb-4">Changes to This Policy</h2>
-        <p class="text-lg text-alimor-text-light leading-relaxed">
+      <!-- Changes to This Policy -->
+      <section>
+        <h2 class="text-2xl sm:text-3xl font-bold tracking-tight mb-4 sm:mb-5">Changes to This Policy</h2>
+        <p class="text-[15px] sm:text-lg text-alimor-text-light leading-relaxed">
           We may update this privacy policy occasionally. Changes will be posted on this page with an updated date.
         </p>
       </section>
 
-      <section class="mb-12">
-        <h2 class="text-3xl font-bold mb-4">Contact Us</h2>
-        <p class="text-lg text-alimor-text-light leading-relaxed mb-4">
-          Questions about privacy? We're here to help.
+      <!-- Contact Us -->
+      <section class="bg-gradient-to-br from-alimor-purple/5 to-white rounded-3xl p-6 sm:p-8 text-center">
+        <h2 class="text-2xl sm:text-3xl font-bold tracking-tight mb-3">Questions?</h2>
+        <p class="text-[15px] sm:text-lg text-alimor-text-light leading-relaxed mb-6">
+          We're here to help with any privacy concerns.
         </p>
-        <a 
+        <a
           href="mailto:aboyahyadev@icloud.com?subject=Privacy%20Question%20-%20Alimor"
-          class="inline-block bg-alimor-purple text-white px-8 py-3 rounded-full font-semibold hover:bg-alimor-purple-dark transition-all"
+          class="touch-target inline-flex items-center justify-center bg-alimor-purple text-white px-8 py-3.5 rounded-full font-semibold btn-hover"
         >
           Email Us
         </a>
       </section>
+
     </div>
   </div>
 </main>
 
-<footer class="py-12 px-6 bg-alimor-text text-white">
+<!-- Footer -->
+<footer class="py-10 sm:py-14 px-5 sm:px-6 bg-alimor-text text-white safe-area-bottom">
   <div class="max-w-6xl mx-auto text-center">
-    <div class="flex items-center justify-center gap-3 mb-4">
-      <img src="/icon.png" alt="Alimor" class="w-10 h-10 rounded-xl" />
-      <span class="text-xl font-semibold">Alimor</span>
+    <div class="flex items-center justify-center gap-2.5 mb-5">
+      <img src="/icon.png" alt="Alimor" class="w-9 h-9 rounded-[10px]" />
+      <span class="text-lg font-semibold">Alimor</span>
     </div>
-    <div class="flex items-center justify-center gap-6 text-gray-400 text-sm mb-4">
+    <div class="flex flex-wrap items-center justify-center gap-x-6 gap-y-2 text-gray-400 text-sm mb-6">
       <a href="/" class="hover:text-white transition-colors">Home</a>
-      <a href="/privacy" class="hover:text-white transition-colors">Privacy</a>
-      <a href="https://www.apple.com/legal/internet-services/itunes/dev/stdeula/" target="_blank" class="hover:text-white transition-colors">Terms</a>
+      <a href="/privacy" class="text-white">Privacy</a>
+      <a href="https://www.apple.com/legal/internet-services/itunes/dev/stdeula/" target="_blank" rel="noopener noreferrer" class="hover:text-white transition-colors">Terms</a>
       <a href="mailto:aboyahyadev@icloud.com" class="hover:text-white transition-colors">Contact</a>
     </div>
-    <p class="text-gray-400 text-sm">&copy; 2024 Alimor. Made with 💜 for mindful eating.</p>
+    <p class="text-gray-400 text-sm">&copy; 2024 Alimor. Made with care for mindful eating.</p>
   </div>
 </footer>
 
