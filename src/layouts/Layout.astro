@@ -12,47 +12,178 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
     <link rel="icon" type="image/png" href="/icon.png" />
-    
+
     <title>{title}</title>
     <meta name="description" content={description} />
     <link rel="canonical" href={canonicalURL} />
-    
+
     <meta property="og:type" content="website" />
     <meta property="og:url" content={canonicalURL} />
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
-    
+
     <meta name="apple-itunes-app" content="app-id=6756018932" />
-    
+    <meta name="theme-color" content="#F8F7FC" />
+
     <style is:global>
+      /* Apple SF Pro-inspired system font stack */
+      :root {
+        --font-system: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'SF Pro Text', 'Helvetica Neue', 'Segoe UI', Roboto, sans-serif;
+        --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+        --ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
+      }
+
+      html {
+        scroll-behavior: smooth;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+        text-rendering: optimizeLegibility;
+      }
+
+      body {
+        font-family: var(--font-system);
+        overflow-x: hidden;
+      }
+
+      /* Refined floating animation */
       @keyframes float {
-        0%, 100% { transform: translateY(0px); }
-        50% { transform: translateY(-20px); }
+        0%, 100% { transform: translateY(0px) scale(1); }
+        50% { transform: translateY(-12px) scale(1.01); }
       }
-      
+
+      @keyframes fadeInUp {
+        from {
+          opacity: 0;
+          transform: translateY(24px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      @keyframes scaleIn {
+        from {
+          opacity: 0;
+          transform: scale(0.95);
+        }
+        to {
+          opacity: 1;
+          transform: scale(1);
+        }
+      }
+
+      @keyframes shimmer {
+        0% { background-position: -200% 0; }
+        100% { background-position: 200% 0; }
+      }
+
       .animate-float {
-        animation: float 6s ease-in-out infinite;
+        animation: float 5s var(--ease-out-expo) infinite;
       }
-      
+
+      .animate-fade-in-up {
+        animation: fadeInUp 0.8s var(--ease-out-expo) forwards;
+      }
+
+      .animate-scale-in {
+        animation: scaleIn 0.6s var(--ease-out-expo) forwards;
+      }
+
+      /* Staggered animations */
+      .stagger-1 { animation-delay: 0.1s; opacity: 0; }
+      .stagger-2 { animation-delay: 0.2s; opacity: 0; }
+      .stagger-3 { animation-delay: 0.3s; opacity: 0; }
+      .stagger-4 { animation-delay: 0.4s; opacity: 0; }
+
+      /* Apple-style glassmorphism */
       .glass {
-        background: rgba(255, 255, 255, 0.7);
-        backdrop-filter: blur(10px);
-        -webkit-backdrop-filter: blur(10px);
-        border: 1px solid rgba(255, 255, 255, 0.3);
+        background: rgba(255, 255, 255, 0.72);
+        backdrop-filter: saturate(180%) blur(20px);
+        -webkit-backdrop-filter: saturate(180%) blur(20px);
+        border-bottom: 0.5px solid rgba(0, 0, 0, 0.1);
       }
-      
+
+      .glass-card {
+        background: rgba(255, 255, 255, 0.6);
+        backdrop-filter: blur(40px);
+        -webkit-backdrop-filter: blur(40px);
+        border: 1px solid rgba(255, 255, 255, 0.5);
+        box-shadow:
+          0 2px 8px rgba(0, 0, 0, 0.04),
+          0 8px 24px rgba(0, 0, 0, 0.06);
+      }
+
+      /* Improved touch targets */
+      .touch-target {
+        min-height: 44px;
+        min-width: 44px;
+      }
+
+      /* Refined button hover states */
+      .btn-hover {
+        transition: all 0.3s var(--ease-out-expo);
+      }
+
+      .btn-hover:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 8px 24px rgba(124, 92, 219, 0.25);
+      }
+
+      .btn-hover:active {
+        transform: translateY(0) scale(0.98);
+      }
+
+      /* Screenshot shadows - Apple style */
+      .screenshot-shadow {
+        box-shadow:
+          0 4px 8px rgba(0, 0, 0, 0.04),
+          0 12px 32px rgba(0, 0, 0, 0.08),
+          0 32px 64px rgba(0, 0, 0, 0.12);
+      }
+
+      /* FAQ details styling */
       details summary::-webkit-details-marker {
         display: none;
       }
-      
-      html {
-        scroll-behavior: smooth;
+
+      details summary {
+        cursor: pointer;
+        -webkit-tap-highlight-color: transparent;
+      }
+
+      /* Smooth content reveal */
+      details[open] .faq-content {
+        animation: fadeInUp 0.4s var(--ease-out-expo) forwards;
+      }
+
+      /* Mobile-optimized text selection */
+      ::selection {
+        background: rgba(124, 92, 219, 0.2);
+      }
+
+      /* Reduced motion preference */
+      @media (prefers-reduced-motion: reduce) {
+        *, *::before, *::after {
+          animation-duration: 0.01ms !important;
+          animation-iteration-count: 1 !important;
+          transition-duration: 0.01ms !important;
+        }
+      }
+
+      /* Safe area padding for notched devices */
+      .safe-area-top {
+        padding-top: env(safe-area-inset-top);
+      }
+
+      .safe-area-bottom {
+        padding-bottom: env(safe-area-inset-bottom);
       }
     </style>
   </head>
-  <body class="bg-alimor-bg text-alimor-text font-sans antialiased">
+  <body class="bg-alimor-bg text-alimor-text antialiased">
     <slot />
   </body>
 </html>
