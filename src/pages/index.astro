@@ -26,21 +26,38 @@ import Layout from '../layouts/Layout.astro';
 <!-- Hero Section -->
 <section class="pt-24 sm:pt-32 pb-16 sm:pb-24 px-5 sm:px-6 relative overflow-hidden">
   <div class="max-w-6xl mx-auto">
-    <div class="grid lg:grid-cols-2 gap-10 lg:gap-16 items-center">
+
+    <!-- Mobile Layout: Text → Image → CTA (stacked) -->
+    <!-- Desktop Layout: Text+CTA left | Image right (grid) -->
+    <div class="grid lg:grid-cols-2 gap-8 lg:gap-16 items-center">
 
       <!-- Hero Content -->
       <div class="text-center lg:text-left">
+        <!-- Headline -->
         <h1 class="animate-fade-in-up stagger-1 text-[2.5rem] sm:text-5xl lg:text-[3.5rem] font-bold leading-[1.1] tracking-tight mb-5 sm:mb-6">
           Your body is trying to
           <span class="text-alimor-purple"> tell you something.</span>
           <span class="block mt-1 sm:mt-2">Are you listening?</span>
         </h1>
 
-        <p class="animate-fade-in-up stagger-2 text-lg sm:text-xl text-alimor-text-light mb-8 sm:mb-10 leading-relaxed max-w-xl mx-auto lg:mx-0">
+        <!-- Subheadline -->
+        <p class="animate-fade-in-up stagger-2 text-lg sm:text-xl text-alimor-text-light mb-6 lg:mb-8 leading-relaxed max-w-xl mx-auto lg:mx-0">
           Track what you eat and how you feel—<strong class="text-alimor-text font-medium">without calorie counting</strong>, judgment, or obsession. Finally understand your food-mood patterns.
         </p>
 
-        <div class="animate-fade-in-up stagger-3 flex flex-col sm:flex-row gap-4 justify-center lg:justify-start mb-8">
+        <!-- Mobile: Image appears here between text and CTA -->
+        <div class="lg:hidden relative flex justify-center mb-8">
+          <div class="relative animate-float">
+            <img
+              src="/screenshots/main.png"
+              alt="Alimor food mood tracker app interface"
+              class="w-[260px] sm:w-[300px] rounded-[2.5rem] screenshot-shadow"
+            />
+          </div>
+        </div>
+
+        <!-- CTA Buttons -->
+        <div class="animate-fade-in-up stagger-3 flex flex-col sm:flex-row gap-4 justify-center lg:justify-start mb-6 lg:mb-8">
           <a
             href="YOUR_APP_STORE_LINK_HERE"
             class="inline-flex items-center justify-center btn-hover"
@@ -55,32 +72,33 @@ import Layout from '../layouts/Layout.astro';
           </a>
         </div>
 
+        <!-- Trust text -->
         <p class="animate-fade-in-up stagger-4 text-sm sm:text-[15px] text-alimor-text-light leading-relaxed">
           <span class="inline-block">Free forever. No calorie counting. No judgment.</span><br class="hidden sm:block" />
           <span class="inline-block mt-1">Perfect for eating disorder recovery & mindful eating.</span>
         </p>
       </div>
 
-      <!-- Hero Image -->
-      <div class="relative flex justify-center lg:justify-end order-first lg:order-last">
+      <!-- Desktop Hero Image (hidden on mobile) -->
+      <div class="relative hidden lg:flex justify-end">
         <div class="relative animate-float">
           <img
             src="/screenshots/main.png"
             alt="Alimor food mood tracker app interface"
-            class="w-[280px] sm:w-[320px] lg:w-[360px] rounded-[2.5rem] screenshot-shadow"
+            class="w-[360px] rounded-[2.5rem] screenshot-shadow"
           />
 
-          <!-- Floating cards - visible on tablet and up -->
-          <div class="absolute -left-4 sm:-left-12 top-16 sm:top-20 glass-card rounded-2xl p-3 sm:p-4 hidden md:flex items-center gap-3 animate-fade-in-up" style="animation-delay: 0.6s;">
-            <span class="text-2xl sm:text-3xl">⚡</span>
+          <!-- Floating cards - visible on desktop -->
+          <div class="absolute -left-12 top-20 glass-card rounded-2xl p-4 flex items-center gap-3 animate-fade-in-up" style="animation-delay: 0.6s;">
+            <span class="text-3xl">⚡</span>
             <div>
               <p class="font-semibold text-sm">Energetic</p>
               <p class="text-xs text-alimor-text-light">After oatmeal</p>
             </div>
           </div>
 
-          <div class="absolute -right-4 sm:-right-12 bottom-16 sm:bottom-24 glass-card rounded-2xl p-3 sm:p-4 hidden md:flex items-center gap-3 animate-fade-in-up" style="animation-delay: 0.8s;">
-            <span class="text-2xl sm:text-3xl">😴</span>
+          <div class="absolute -right-12 bottom-24 glass-card rounded-2xl p-4 flex items-center gap-3 animate-fade-in-up" style="animation-delay: 0.8s;">
+            <span class="text-3xl">😴</span>
             <div>
               <p class="font-semibold text-sm">Tired</p>
               <p class="text-xs text-alimor-text-light">After pizza</p>
