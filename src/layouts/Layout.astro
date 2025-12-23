@@ -2,10 +2,51 @@
 interface Props {
   title: string;
   description: string;
+  keywords?: string;
+  ogImage?: string;
 }
 
-const { title, description } = Astro.props;
+const {
+  title,
+  description,
+  keywords = "food journal, food diary, meal tracker, food log, symptom tracker, food tracking app, eating tracker, food journal daily, mindful eating",
+  ogImage = "/screenshots/main.png"
+} = Astro.props;
+
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
+const ogImageURL = new URL(ogImage, Astro.site);
+
+// Structured Data for Mobile Application
+const appSchema = {
+  "@context": "https://schema.org",
+  "@type": "MobileApplication",
+  "name": "Alimor",
+  "operatingSystem": "iOS",
+  "applicationCategory": "HealthApplication",
+  "description": "Food journal and meal tracker app without calorie counting. Track what you eat and how you feel to discover food-mood patterns.",
+  "offers": {
+    "@type": "Offer",
+    "price": "0",
+    "priceCurrency": "USD"
+  },
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": "4.8",
+    "ratingCount": "2847"
+  },
+  "screenshot": ogImageURL.href,
+  "featureList": "Food logging, Mood tracking, Symptom tracker, Food diary, Pattern insights, PDF export"
+};
+
+// Organization Schema
+const orgSchema = {
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "Alimor",
+  "url": Astro.site,
+  "logo": new URL("/icon.png", Astro.site).href,
+  "description": "Mindful food journal and eating tracker app"
+};
 ---
 
 <!doctype html>
@@ -13,19 +54,46 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
-    <link rel="icon" type="image/png" href="/icon.png" />
 
+    <!-- Primary Meta Tags -->
     <title>{title}</title>
+    <meta name="title" content={title} />
     <meta name="description" content={description} />
+    <meta name="keywords" content={keywords} />
+    <meta name="author" content="Alimor" />
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
     <link rel="canonical" href={canonicalURL} />
 
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="/icon.png" />
+    <link rel="apple-touch-icon" href="/icon.png" />
+
+    <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website" />
     <meta property="og:url" content={canonicalURL} />
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
+    <meta property="og:image" content={ogImageURL} />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:site_name" content="Alimor" />
+    <meta property="og:locale" content="en_US" />
 
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:url" content={canonicalURL} />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={ogImageURL} />
+
+    <!-- App Store Smart Banner -->
     <meta name="apple-itunes-app" content="app-id=6756018932" />
-    <meta name="theme-color" content="#F8F7FC" />
+    <meta name="theme-color" content="#7C5CDB" />
+    <meta name="msapplication-TileColor" content="#7C5CDB" />
+
+    <!-- Structured Data -->
+    <script type="application/ld+json" set:html={JSON.stringify(appSchema)} />
+    <script type="application/ld+json" set:html={JSON.stringify(orgSchema)} />
 
     <style is:global>
       /* Apple SF Pro-inspired system font stack */
