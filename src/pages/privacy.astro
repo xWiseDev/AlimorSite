@@ -1,0 +1,159 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const currentDate = new Date().toLocaleDateString('en-US', { 
+  year: 'numeric', 
+  month: 'long', 
+  day: 'numeric' 
+});
+---
+
+<Layout 
+  title="Privacy Policy - Alimor" 
+  description="Alimor privacy policy - Your data stays on your device. We don't collect, sell, or share your personal information."
+>
+
+<nav class="fixed top-0 w-full z-50 glass">
+  <div class="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
+    <a href="/AlimorSite/" class="flex items-center gap-3 hover:opacity-80 transition-opacity">
+      <img src="/AlimorSite/icon.png" alt="Alimor Logo" class="w-10 h-10 rounded-xl" />
+      <span class="text-xl font-semibold text-alimor-purple">Alimor</span>
+    </a>
+    <a 
+      href="mailto:aboyahyadev@icloud.com" 
+      class="text-alimor-purple hover:text-alimor-purple-dark font-medium transition-colors"
+    >
+      Contact
+    </a>
+  </div>
+</nav>
+
+<main class="pt-32 pb-20 px-6">
+  <div class="max-w-3xl mx-auto">
+    <h1 class="text-5xl font-bold mb-4">Privacy Policy</h1>
+    <p class="text-alimor-text-light mb-12">Last updated: {currentDate}</p>
+    
+    <div class="prose prose-lg max-w-none">
+      <section class="mb-12">
+        <h2 class="text-3xl font-bold mb-4">Your Privacy Matters</h2>
+        <p class="text-lg text-alimor-text-light leading-relaxed mb-4">
+          Alimor is built with privacy at its core. We believe your food and mood data is deeply personal 
+          and should stay under your control.
+        </p>
+      </section>
+
+      <section class="mb-12">
+        <h2 class="text-3xl font-bold mb-4">Data Storage</h2>
+        <p class="text-lg text-alimor-text-light leading-relaxed mb-4">
+          <strong>All your data stays on your device.</strong> Your food logs, mood entries, and patterns 
+          are stored locally on your iPhone using Apple's secure storage frameworks.
+        </p>
+        <p class="text-lg text-alimor-text-light leading-relaxed">
+          If you enable iCloud sync (optional), your data is encrypted and synced through your personal 
+          iCloud account. We never have access to this data.
+        </p>
+      </section>
+
+      <section class="mb-12">
+        <h2 class="text-3xl font-bold mb-4">What We Don't Collect</h2>
+        <ul class="space-y-3 text-lg text-alimor-text-light">
+          <li class="flex items-start gap-3">
+            <span class="text-alimor-purple">•</span>
+            <span>We don't collect your food logs or mood data</span>
+          </li>
+          <li class="flex items-start gap-3">
+            <span class="text-alimor-purple">•</span>
+            <span>We don't track your location</span>
+          </li>
+          <li class="flex items-start gap-3">
+            <span class="text-alimor-purple">•</span>
+            <span>We don't sell your data to third parties</span>
+          </li>
+          <li class="flex items-start gap-3">
+            <span class="text-alimor-purple">•</span>
+            <span>We don't use analytics or tracking pixels</span>
+          </li>
+          <li class="flex items-start gap-3">
+            <span class="text-alimor-purple">•</span>
+            <span>We don't require an account or email address</span>
+          </li>
+        </ul>
+      </section>
+
+      <section class="mb-12">
+        <h2 class="text-3xl font-bold mb-4">What We Do Collect</h2>
+        <p class="text-lg text-alimor-text-light leading-relaxed mb-4">
+          <strong>Crash reports (optional):</strong> If you opt in, anonymous crash reports help us fix bugs. 
+          These contain no personal information or food/mood data.
+        </p>
+        <p class="text-lg text-alimor-text-light leading-relaxed">
+          <strong>Purchase information:</strong> If you subscribe to Alimor Pro, Apple processes your payment. 
+          We only receive a receipt confirmation (no credit card details).
+        </p>
+      </section>
+
+      <section class="mb-12">
+        <h2 class="text-3xl font-bold mb-4">Your Rights</h2>
+        <ul class="space-y-3 text-lg text-alimor-text-light">
+          <li class="flex items-start gap-3">
+            <span class="text-alimor-purple">•</span>
+            <span><strong>Export your data:</strong> Use the export feature to download all your entries as PDF or CSV</span>
+          </li>
+          <li class="flex items-start gap-3">
+            <span class="text-alimor-purple">•</span>
+            <span><strong>Delete your data:</strong> Uninstall the app to permanently delete all local data</span>
+          </li>
+          <li class="flex items-start gap-3">
+            <span class="text-alimor-purple">•</span>
+            <span><strong>Disable iCloud sync:</strong> Turn off sync in Settings to keep data device-only</span>
+          </li>
+        </ul>
+      </section>
+
+      <section class="mb-12">
+        <h2 class="text-3xl font-bold mb-4">Children's Privacy</h2>
+        <p class="text-lg text-alimor-text-light leading-relaxed">
+          Alimor is not intended for children under 13. We do not knowingly collect information from children.
+        </p>
+      </section>
+
+      <section class="mb-12">
+        <h2 class="text-3xl font-bold mb-4">Changes to This Policy</h2>
+        <p class="text-lg text-alimor-text-light leading-relaxed">
+          We may update this privacy policy occasionally. Changes will be posted on this page with an updated date.
+        </p>
+      </section>
+
+      <section class="mb-12">
+        <h2 class="text-3xl font-bold mb-4">Contact Us</h2>
+        <p class="text-lg text-alimor-text-light leading-relaxed mb-4">
+          Questions about privacy? We're here to help.
+        </p>
+        <a 
+          href="mailto:aboyahyadev@icloud.com?subject=Privacy%20Question%20-%20Alimor"
+          class="inline-block bg-alimor-purple text-white px-8 py-3 rounded-full font-semibold hover:bg-alimor-purple-dark transition-all"
+        >
+          Email Us
+        </a>
+      </section>
+    </div>
+  </div>
+</main>
+
+<footer class="py-12 px-6 bg-alimor-text text-white">
+  <div class="max-w-6xl mx-auto text-center">
+    <div class="flex items-center justify-center gap-3 mb-4">
+      <img src="/AlimorSite/icon.png" alt="Alimor" class="w-10 h-10 rounded-xl" />
+      <span class="text-xl font-semibold">Alimor</span>
+    </div>
+    <div class="flex items-center justify-center gap-6 text-gray-400 text-sm mb-4">
+      <a href="/AlimorSite/" class="hover:text-white transition-colors">Home</a>
+      <a href="/AlimorSite/privacy" class="hover:text-white transition-colors">Privacy</a>
+      <a href="https://www.apple.com/legal/internet-services/itunes/dev/stdeula/" target="_blank" class="hover:text-white transition-colors">Terms</a>
+      <a href="mailto:aboyahyadev@icloud.com" class="hover:text-white transition-colors">Contact</a>
+    </div>
+    <p class="text-gray-400 text-sm">&copy; 2024 Alimor. Made with 💜 for mindful eating.</p>
+  </div>
+</footer>
+
+</Layout>

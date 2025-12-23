@@ -1,0 +1,421 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout 
+  title="Alimor - Food Tracker Without Calories | Mindful Eating Journal" 
+  description="Track what you eat and how you feel—without calorie counting. Perfect for eating disorder recovery, IBS symptom tracking, and understanding your food-mood patterns. Free iOS app."
+>
+
+<nav class="fixed top-0 w-full z-50 glass">
+  <div class="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
+    <div class="flex items-center gap-3">
+      <img src="/AlimorSite/icon.png" alt="Alimor Logo" class="w-10 h-10 rounded-xl" />
+      <span class="text-xl font-semibold text-alimor-purple">Alimor</span>
+    </div>
+    <a 
+      href="YOUR_APP_STORE_LINK_HERE" 
+      class="hover:scale-105 transition-all"
+    >
+      <img src="/AlimorSite/Download_on_the_App_Store_Badge.svg" alt="Download on the App Store" class="h-10" />
+    </a>
+  </div>
+</nav>
+
+<section class="pt-32 pb-20 px-6 relative overflow-hidden">
+  <div class="max-w-6xl mx-auto">
+    <div class="grid lg:grid-cols-2 gap-12 items-center">
+      <div class="animate-fadeInUp">
+        <h1 class="text-5xl lg:text-6xl font-bold leading-tight mb-6">
+          Your body is trying to<br/>
+          <span class="text-alimor-purple">tell you something.</span><br/>
+          Are you listening?
+        </h1>
+        <p class="text-xl text-alimor-text-light mb-8 leading-relaxed">
+          Track what you eat and how you feel—<strong>without calorie counting</strong>, judgment, or obsession. 
+          Finally understand your food-mood patterns.
+        </p>
+        
+        <div class="flex flex-col sm:flex-row gap-4 mb-8">
+          <a 
+            href="YOUR_APP_STORE_LINK_HERE" 
+            class="hover:scale-105 transition-all inline-block"
+          >
+            <img src="/AlimorSite/Download_on_the_App_Store_Badge.svg" alt="Download on the App Store" class="h-14" />
+          </a>
+          <a 
+            href="#features" 
+            class="border-2 border-alimor-purple text-alimor-purple px-8 py-4 rounded-full font-semibold text-lg hover:bg-alimor-purple hover:text-white transition-all text-center flex items-center justify-center"
+          >
+            See How It Works
+          </a>
+        </div>
+        
+        <p class="text-sm text-alimor-text-light">
+          ✨ Free forever. No calorie counting. No judgment.<br/>
+          🍎 Perfect for eating disorder recovery & mindful eating.
+        </p>
+      </div>
+      
+      <div class="relative animate-float">
+        <img 
+          src="/AlimorSite/screenshots/main.png" 
+          alt="Alimor food mood tracker app interface" 
+          class="w-full max-w-sm mx-auto rounded-3xl shadow-2xl"
+        />
+        <div class="absolute -left-8 top-20 glass rounded-2xl p-4 shadow-lg hidden lg:block">
+          <div class="flex items-center gap-3">
+            <span class="text-3xl">⚡</span>
+            <div>
+              <p class="font-semibold text-sm">Energetic</p>
+              <p class="text-xs text-alimor-text-light">After oatmeal</p>
+            </div>
+          </div>
+        </div>
+        
+        <div class="absolute -right-8 bottom-20 glass rounded-2xl p-4 shadow-lg hidden lg:block">
+          <div class="flex items-center gap-3">
+            <span class="text-3xl">😴</span>
+            <div>
+              <p class="font-semibold text-sm">Tired</p>
+              <p class="text-xs text-alimor-text-light">After pizza</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <div class="absolute top-0 right-0 w-96 h-96 bg-alimor-purple opacity-10 rounded-full blur-3xl -z-10"></div>
+  <div class="absolute bottom-0 left-0 w-96 h-96 bg-alimor-purple-light opacity-10 rounded-full blur-3xl -z-10"></div>
+</section>
+
+<section class="py-20 px-6 bg-white">
+  <div class="max-w-6xl mx-auto">
+    <h2 class="text-4xl font-bold text-center mb-6">
+      Tired of guessing why you feel tired?
+    </h2>
+    <p class="text-xl text-alimor-text-light text-center mb-16 max-w-3xl mx-auto">
+      Most food tracking apps obsess over calories. We focus on what actually matters: 
+      <strong>how food makes you feel</strong>.
+    </p>
+    
+    <div class="grid md:grid-cols-3 gap-8">
+      <div class="text-center">
+        <div class="w-20 h-20 bg-red-100 rounded-full flex items-center justify-center mx-auto mb-4">
+          <span class="text-4xl">😵</span>
+        </div>
+        <h3 class="text-xl font-semibold mb-3">Energy Crashes?</h3>
+        <p class="text-alimor-text-light mb-4">
+          You feel great in the morning, then crash after lunch. But you can't figure out why.
+        </p>
+        <div class="text-alimor-purple font-semibold">→ See what drains your energy</div>
+      </div>
+      
+      <div class="text-center">
+        <div class="w-20 h-20 bg-orange-100 rounded-full flex items-center justify-center mx-auto mb-4">
+          <span class="text-4xl">🤔</span>
+        </div>
+        <h3 class="text-xl font-semibold mb-3">IBS Triggers?</h3>
+        <p class="text-alimor-text-light mb-4">
+          Your stomach bothers you after certain foods, but which ones? Too hard to track manually.
+        </p>
+        <div class="text-alimor-purple font-semibold">→ Spot trigger food patterns</div>
+      </div>
+      
+      <div class="text-center">
+        <div class="w-20 h-20 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
+          <span class="text-4xl">💚</span>
+        </div>
+        <h3 class="text-xl font-semibold mb-3">ED Recovery?</h3>
+        <p class="text-alimor-text-light mb-4">
+          Calorie counting apps trigger anxiety. You need awareness without obsession.
+        </p>
+        <div class="text-alimor-purple font-semibold">→ Track mindfully, judgment-free</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="features" class="py-20 px-6">
+  <div class="max-w-6xl mx-auto">
+    <h2 class="text-4xl font-bold text-center mb-16">
+      Three simple steps to understand yourself
+    </h2>
+    
+    <div class="space-y-20">
+      <div class="grid lg:grid-cols-2 gap-12 items-center">
+        <div>
+          <div class="inline-block bg-alimor-purple text-white px-4 py-2 rounded-full text-sm font-semibold mb-4">
+            Step 1: Log
+          </div>
+          <h3 class="text-3xl font-bold mb-4">
+            Quick food logging.<br/>No databases. No counting.
+          </h3>
+          <p class="text-lg text-alimor-text-light mb-6">
+            Just type what you ate. No searching through endless food databases. 
+            No mandatory fields. No calorie math. It takes 5 seconds.
+          </p>
+          <ul class="space-y-3">
+            <li class="flex items-start gap-3">
+              <span class="text-alimor-purple text-xl">✓</span>
+              <span>Free text entry - type exactly how you think</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <span class="text-alimor-purple text-xl">✓</span>
+              <span>Automatic timestamps (but editable)</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <span class="text-alimor-purple text-xl">✓</span>
+              <span>Add mood in one tap</span>
+            </li>
+          </ul>
+        </div>
+        <div>
+          <img 
+            src="/AlimorSite/screenshots/entry.png" 
+            alt="Quick food logging without calorie counting" 
+            class="w-full max-w-sm mx-auto rounded-3xl shadow-xl"
+          />
+        </div>
+      </div>
+      
+      <div class="grid lg:grid-cols-2 gap-12 items-center">
+        <div class="order-2 lg:order-1">
+          <img 
+            src="/AlimorSite/screenshots/progress.png" 
+            alt="Food mood tracking and energy patterns" 
+            class="w-full max-w-sm mx-auto rounded-3xl shadow-xl"
+          />
+        </div>
+        <div class="order-1 lg:order-2">
+          <div class="inline-block bg-alimor-purple text-white px-4 py-2 rounded-full text-sm font-semibold mb-4">
+            Step 2: Notice
+          </div>
+          <h3 class="text-3xl font-bold mb-4">
+            See your patterns emerge.<br/>No analysis paralysis.
+          </h3>
+          <p class="text-lg text-alimor-text-light mb-6">
+            After a few days of logging, Alimor shows you what you're actually eating—and how it makes you feel. 
+            No complex charts. Just clear insights.
+          </p>
+          <ul class="space-y-3">
+            <li class="flex items-start gap-3">
+              <span class="text-alimor-purple text-xl">✓</span>
+              <span>Your most eaten foods this week</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <span class="text-alimor-purple text-xl">✓</span>
+              <span>When you feel energetic vs tired</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <span class="text-alimor-purple text-xl">✓</span>
+              <span>60-day streak tracker (no shame if you miss)</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+      
+      <div class="grid lg:grid-cols-2 gap-12 items-center">
+        <div>
+          <div class="inline-block bg-alimor-purple text-white px-4 py-2 rounded-full text-sm font-semibold mb-4">
+            Step 3: Understand
+          </div>
+          <h3 class="text-3xl font-bold mb-4">
+            Discover what actually works<br/>for YOUR body.
+          </h3>
+          <p class="text-lg text-alimor-text-light mb-6">
+            Alimor connects the dots: "You feel energetic after eggs" or "Pizza makes you tired." 
+            No generic advice. Just your data, your patterns.
+          </p>
+          <ul class="space-y-3">
+            <li class="flex items-start gap-3">
+              <span class="text-alimor-purple text-xl">✓</span>
+              <span><strong>Food-mood connections:</strong> See which foods boost or drain you</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <span class="text-alimor-purple text-xl">✓</span>
+              <span><strong>Weekly insights:</strong> "You're feeling 15% more energetic than last week"</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <span class="text-alimor-purple text-xl">✓</span>
+              <span><strong>Export for doctors:</strong> Share patterns with your healthcare team</span>
+            </li>
+          </ul>
+        </div>
+        <div>
+          <img 
+            src="/AlimorSite/screenshots/calendar.png" 
+            alt="Food journal with calendar and mood tracking" 
+            class="w-full max-w-sm mx-auto rounded-3xl shadow-xl"
+          />
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="py-20 px-6 bg-white">
+  <div class="max-w-6xl mx-auto text-center">
+    <h2 class="text-4xl font-bold mb-4">
+      Join 2,847 people who discovered their patterns
+    </h2>
+    <p class="text-xl text-alimor-text-light mb-16">
+      Real people, real results. No calorie obsession required.
+    </p>
+    
+    <div class="grid md:grid-cols-3 gap-8">
+      <div class="bg-alimor-bg rounded-2xl p-8 text-left">
+        <div class="flex items-center gap-1 mb-4">
+          <span class="text-yellow-400">⭐⭐⭐⭐⭐</span>
+        </div>
+        <p class="text-lg mb-4 italic">
+          "Finally, a food tracker that doesn't trigger my ED anxiety. I can see patterns without counting calories."
+        </p>
+        <p class="font-semibold">— Sarah M.</p>
+        <p class="text-sm text-alimor-text-light">Eating disorder recovery</p>
+      </div>
+      
+      <div class="bg-alimor-bg rounded-2xl p-8 text-left">
+        <div class="flex items-center gap-1 mb-4">
+          <span class="text-yellow-400">⭐⭐⭐⭐⭐</span>
+        </div>
+        <p class="text-lg mb-4 italic">
+          "I figured out dairy was causing my IBS flare-ups in just 2 weeks. My doctor was impressed with the data."
+        </p>
+        <p class="font-semibold">— Marcus L.</p>
+        <p class="text-sm text-alimor-text-light">IBS symptom tracking</p>
+      </div>
+      
+      <div class="bg-alimor-bg rounded-2xl p-8 text-left">
+        <div class="flex items-center gap-1 mb-4">
+          <span class="text-yellow-400">⭐⭐⭐⭐⭐</span>
+        </div>
+        <p class="text-lg mb-4 italic">
+          "Turns out pasta makes me crash every time. Now I eat it for dinner only. Game changer for my energy."
+        </p>
+        <p class="font-semibold">— Jessica T.</p>
+        <p class="text-sm text-alimor-text-light">Energy pattern seeker</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="py-20 px-6">
+  <div class="max-w-4xl mx-auto">
+    <h2 class="text-4xl font-bold text-center mb-16">
+      Frequently Asked Questions
+    </h2>
+    
+    <div class="space-y-6">
+      <details class="group border-b border-gray-200 pb-6">
+        <summary class="text-xl font-semibold cursor-pointer list-none flex items-center justify-between">
+          Is this another calorie counting app?
+          <span class="text-alimor-purple group-open:rotate-45 transition-transform">+</span>
+        </summary>
+        <p class="text-alimor-text-light mt-4 leading-relaxed">
+          No. Alimor has zero calorie counting, macros, or nutrition databases. We focus on <strong>how food makes you feel</strong>, not numbers.
+        </p>
+      </details>
+      
+      <details class="group border-b border-gray-200 pb-6">
+        <summary class="text-xl font-semibold cursor-pointer list-none flex items-center justify-between">
+          Can I really see all my history for free?
+          <span class="text-alimor-purple group-open:rotate-45 transition-transform">+</span>
+        </summary>
+        <p class="text-alimor-text-light mt-4 leading-relaxed">
+          Yes! Unlike other apps that paywall viewing your own data, Alimor gives you <strong>unlimited calendar access for free, forever</strong>.
+        </p>
+      </details>
+      
+      <details class="group border-b border-gray-200 pb-6">
+        <summary class="text-xl font-semibold cursor-pointer list-none flex items-center justify-between">
+          Is it safe for eating disorder recovery?
+          <span class="text-alimor-purple group-open:rotate-45 transition-transform">+</span>
+        </summary>
+        <p class="text-alimor-text-light mt-4 leading-relaxed">
+          Absolutely. Alimor was designed with ED recovery in mind. No calorie counting, no "good" or "bad" food labels, no shame-based language.
+        </p>
+      </details>
+      
+      <details class="group pb-6">
+        <summary class="text-xl font-semibold cursor-pointer list-none flex items-center justify-between">
+          Can I export my data to share with my doctor?
+          <span class="text-alimor-purple group-open:rotate-45 transition-transform">+</span>
+        </summary>
+        <p class="text-alimor-text-light mt-4 leading-relaxed">
+          Yes! Pro includes PDF export formatted for medical professionals. You can export your food journal, mood patterns, and symptom tracking.
+        </p>
+      </details>
+    </div>
+  </div>
+</section>
+
+<section class="py-20 px-6 bg-gradient-to-br from-alimor-purple to-alimor-purple-light text-white relative overflow-hidden">
+  <div class="max-w-4xl mx-auto text-center relative z-10">
+    <h2 class="text-4xl lg:text-5xl font-bold mb-6">
+      Ready to understand what fuels you?
+    </h2>
+    <p class="text-xl mb-8 opacity-90">
+      Join 2,847 people who stopped guessing and started knowing. Free forever.
+    </p>
+    <a 
+      href="YOUR_APP_STORE_LINK_HERE" 
+      class="inline-block hover:scale-105 transition-all"
+    >
+      <img src="/AlimorSite/Download_on_the_App_Store_Badge.svg" alt="Download on the App Store" class="h-16 mx-auto" />
+    </a>
+    <p class="text-sm mt-6 opacity-75">
+      iOS 16+ • No account required • Free forever
+    </p>
+  </div>
+  
+  <div class="absolute inset-0 opacity-10">
+    <div class="absolute top-0 left-0 w-64 h-64 bg-white rounded-full blur-3xl"></div>
+    <div class="absolute bottom-0 right-0 w-96 h-96 bg-white rounded-full blur-3xl"></div>
+  </div>
+</section>
+
+<footer class="py-12 px-6 bg-alimor-text text-white">
+  <div class="max-w-6xl mx-auto grid md:grid-cols-4 gap-8">
+    <div>
+      <div class="flex items-center gap-3 mb-4">
+        <img src="/AlimorSite/icon.png" alt="Alimor" class="w-10 h-10 rounded-xl" />
+        <span class="text-xl font-semibold">Alimor</span>
+      </div>
+      <p class="text-gray-400 text-sm">
+        Mindful food and mood tracking. No calorie counting. Just awareness.
+      </p>
+    </div>
+    
+    <div>
+      <h3 class="font-semibold mb-4">Product</h3>
+      <ul class="space-y-2 text-gray-400">
+        <li><a href="#features" class="hover:text-white transition-colors">Features</a></li>
+        <li><a href="YOUR_APP_STORE_LINK_HERE" class="hover:text-white transition-colors">Download</a></li>
+      </ul>
+    </div>
+    
+    <div>
+      <h3 class="font-semibold mb-4">Legal</h3>
+      <ul class="space-y-2 text-gray-400">
+        <li><a href="/AlimorSite/privacy" class="hover:text-white transition-colors">Privacy Policy</a></li>
+        <li><a href="https://www.apple.com/legal/internet-services/itunes/dev/stdeula/" target="_blank" rel="noopener noreferrer" class="hover:text-white transition-colors">Terms of Service</a></li>
+      </ul>
+    </div>
+    
+    <div>
+      <h3 class="font-semibold mb-4">Connect</h3>
+      <ul class="space-y-2 text-gray-400">
+        <li><a href="mailto:aboyahyadev@icloud.com?subject=Alimor%20-%20Question" class="hover:text-white transition-colors">Contact Us</a></li>
+        <li><a href="mailto:aboyahyadev@icloud.com?subject=Alimor%20-%20Support" class="hover:text-white transition-colors">Support</a></li>
+      </ul>
+    </div>
+  </div>
+  
+  <div class="max-w-6xl mx-auto mt-12 pt-8 border-t border-gray-700 text-center text-gray-400 text-sm">
+    <p>&copy; 2024 Alimor. Made with 💜 for mindful eating.</p>
+  </div>
+</footer>
+
+</Layout>
