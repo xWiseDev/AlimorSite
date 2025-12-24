@@ -1,0 +1,308 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+// FAQ Schema for SEO
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "How do I get started with the Alimor food tracker?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Download Alimor from the App Store and open the app. No account required. Start your food log by tapping the + button. Just type what you ate—no searching through databases. Add how you're feeling with our mood tracker, and you're done. It takes seconds to create your first food journal entry."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is my food diary data private and secure?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Absolutely. Your food journal stays on your device. We don't collect, store, or sell your personal data. What you eat is your business—our food tracking app just helps you understand it better."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What's included in the free food tracker?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The free version includes unlimited food logging, mood tracking, symptom tracker, full calendar history access, and basic pattern insights. Unlike other nutrition tracker apps, we don't paywall your own data. Pro unlocks CSV exports and advanced analytics."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I export my food journal data?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes! Pro users can export their food log and mood data as CSV files. Share your eating tracker data with doctors, dietitians, or therapists to help them understand your food-mood patterns."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Does this meal tracker count calories or macros?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. Alimor is not a macros tracker or calorie counter. Our food diary focuses on how food makes you feel—not numbers. Perfect for mindful eating, eating disorder recovery, and anyone tired of obsessive nutrition tracking."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I use this food tracking app for IBS or food sensitivities?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Absolutely! Alimor's symptom tracker helps you identify trigger foods. Log your meals daily with our food journal, track symptoms, and discover patterns. Many users find their IBS triggers within weeks of consistent food logging."
+      }
+    }
+  ]
+};
+---
+
+<Layout
+  title="Food Tracker Support & FAQ | Alimor Food Journal App Help"
+  description="Get help with Alimor food tracker app. FAQ for meal tracker, food diary, symptom tracker, and food logging features. Contact support for your food journal daily questions."
+  keywords="food tracker support, food journal help, meal tracker FAQ, food diary app support, eating tracker help, food log questions, symptom tracker support, food tracking app help, nutrition tracker FAQ"
+>
+
+<!-- FAQ Schema -->
+<script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
+
+<!-- Navigation -->
+<nav class="fixed top-0 w-full z-50 glass safe-area-top">
+  <div class="max-w-6xl mx-auto px-5 sm:px-6 py-3 sm:py-4 flex items-center justify-between">
+    <a href="/" class="flex items-center gap-2.5">
+      <img src="/icon.png" alt="Alimor Food Tracker" class="w-9 h-9 sm:w-10 sm:h-10 rounded-[10px] sm:rounded-xl shadow-sm" />
+      <span class="text-lg sm:text-xl font-semibold text-alimor-purple tracking-tight">Alimor</span>
+    </a>
+    <a
+      href="/"
+      class="text-sm sm:text-base font-medium text-alimor-text-light hover:text-alimor-purple transition-colors"
+    >
+      Back to Home
+    </a>
+  </div>
+</nav>
+
+<!-- Hero Section -->
+<section class="pt-28 sm:pt-36 pb-12 sm:pb-16 px-5 sm:px-6 relative overflow-hidden">
+  <div class="max-w-3xl mx-auto text-center">
+    <h1 class="animate-fade-in-up stagger-1 text-4xl sm:text-5xl lg:text-[3.25rem] font-bold leading-[1.1] tracking-tight mb-5 sm:mb-6">
+      Food Tracker Support
+    </h1>
+    <p class="animate-fade-in-up stagger-2 text-lg sm:text-xl text-alimor-text-light leading-relaxed max-w-xl mx-auto">
+      Find answers about your food journal, meal tracker, and symptom logging. We're here to help you on your mindful eating journey.
+    </p>
+  </div>
+
+  <!-- Background decoration -->
+  <div class="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[600px] bg-gradient-to-br from-alimor-purple/10 to-alimor-purple-light/5 rounded-full blur-3xl -z-10 -translate-y-1/2"></div>
+</section>
+
+<!-- FAQ Section -->
+<section class="py-12 sm:py-20 px-5 sm:px-6" aria-labelledby="faq-heading">
+  <div class="max-w-3xl mx-auto">
+    <h2 id="faq-heading" class="text-2xl sm:text-3xl font-bold text-center tracking-tight mb-10 sm:mb-14">
+      Food Journal & Meal Tracker FAQ
+    </h2>
+
+    <div class="space-y-3 sm:space-y-4">
+      <!-- Getting Started -->
+      <details class="group bg-white rounded-2xl border border-gray-100 overflow-hidden">
+        <summary class="touch-target flex items-center justify-between p-5 sm:p-6 text-left font-semibold text-base sm:text-lg">
+          How do I get started with the Alimor food tracker?
+          <span class="flex-shrink-0 ml-4 w-8 h-8 rounded-full bg-alimor-bg flex items-center justify-center group-open:bg-alimor-purple transition-colors">
+            <svg class="w-4 h-4 text-alimor-purple group-open:text-white group-open:rotate-45 transition-all" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"/></svg>
+          </span>
+        </summary>
+        <div class="faq-content px-5 sm:px-6 pb-5 sm:pb-6">
+          <p class="text-alimor-text-light leading-relaxed text-[15px]">
+            Download Alimor from the App Store and open the app. No account required. Start your <strong class="text-alimor-text">food log</strong> by tapping the + button. Just type what you ate—no searching through databases. Add how you're feeling with our mood tracker, and you're done. It takes seconds to create your first <strong class="text-alimor-text">food journal</strong> entry.
+          </p>
+        </div>
+      </details>
+
+      <!-- Data Privacy -->
+      <details class="group bg-white rounded-2xl border border-gray-100 overflow-hidden">
+        <summary class="touch-target flex items-center justify-between p-5 sm:p-6 text-left font-semibold text-base sm:text-lg">
+          Is my food diary data private and secure?
+          <span class="flex-shrink-0 ml-4 w-8 h-8 rounded-full bg-alimor-bg flex items-center justify-center group-open:bg-alimor-purple transition-colors">
+            <svg class="w-4 h-4 text-alimor-purple group-open:text-white group-open:rotate-45 transition-all" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"/></svg>
+          </span>
+        </summary>
+        <div class="faq-content px-5 sm:px-6 pb-5 sm:pb-6">
+          <p class="text-alimor-text-light leading-relaxed text-[15px]">
+            Absolutely. Your <strong class="text-alimor-text">food journal</strong> stays on your device. We don't collect, store, or sell your personal data. What you eat is your business—our <strong class="text-alimor-text">food tracking app</strong> just helps you understand it better. Read our <a href="/privacy" class="text-alimor-purple hover:underline">Privacy Policy</a> for details.
+          </p>
+        </div>
+      </details>
+
+      <!-- Free vs Pro -->
+      <details class="group bg-white rounded-2xl border border-gray-100 overflow-hidden">
+        <summary class="touch-target flex items-center justify-between p-5 sm:p-6 text-left font-semibold text-base sm:text-lg">
+          What's included in the free food tracker?
+          <span class="flex-shrink-0 ml-4 w-8 h-8 rounded-full bg-alimor-bg flex items-center justify-center group-open:bg-alimor-purple transition-colors">
+            <svg class="w-4 h-4 text-alimor-purple group-open:text-white group-open:rotate-45 transition-all" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"/></svg>
+          </span>
+        </summary>
+        <div class="faq-content px-5 sm:px-6 pb-5 sm:pb-6">
+          <p class="text-alimor-text-light leading-relaxed text-[15px]">
+            The free version includes unlimited <strong class="text-alimor-text">food logging</strong>, mood tracking, <strong class="text-alimor-text">symptom tracker</strong>, full calendar history access, and basic pattern insights. Unlike other <strong class="text-alimor-text">nutrition tracker</strong> apps, we don't paywall your own data. Pro unlocks CSV exports and advanced analytics.
+          </p>
+        </div>
+      </details>
+
+      <!-- Macros/Calories -->
+      <details class="group bg-white rounded-2xl border border-gray-100 overflow-hidden">
+        <summary class="touch-target flex items-center justify-between p-5 sm:p-6 text-left font-semibold text-base sm:text-lg">
+          Does this meal tracker count calories or macros?
+          <span class="flex-shrink-0 ml-4 w-8 h-8 rounded-full bg-alimor-bg flex items-center justify-center group-open:bg-alimor-purple transition-colors">
+            <svg class="w-4 h-4 text-alimor-purple group-open:text-white group-open:rotate-45 transition-all" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"/></svg>
+          </span>
+        </summary>
+        <div class="faq-content px-5 sm:px-6 pb-5 sm:pb-6">
+          <p class="text-alimor-text-light leading-relaxed text-[15px]">
+            No. Alimor is not a <strong class="text-alimor-text">macros tracker</strong> or calorie counter. Our <strong class="text-alimor-text">food diary</strong> focuses on how food makes you feel—not numbers. Perfect for mindful eating, eating disorder recovery, and anyone tired of obsessive <strong class="text-alimor-text">nutrition tracking</strong>.
+          </p>
+        </div>
+      </details>
+
+      <!-- Restore Purchase -->
+      <details class="group bg-white rounded-2xl border border-gray-100 overflow-hidden">
+        <summary class="touch-target flex items-center justify-between p-5 sm:p-6 text-left font-semibold text-base sm:text-lg">
+          How do I restore my Pro purchase?
+          <span class="flex-shrink-0 ml-4 w-8 h-8 rounded-full bg-alimor-bg flex items-center justify-center group-open:bg-alimor-purple transition-colors">
+            <svg class="w-4 h-4 text-alimor-purple group-open:text-white group-open:rotate-45 transition-all" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"/></svg>
+          </span>
+        </summary>
+        <div class="faq-content px-5 sm:px-6 pb-5 sm:pb-6">
+          <p class="text-alimor-text-light leading-relaxed text-[15px]">
+            Go to Settings in the app and tap "Restore Purchases." Make sure you're signed in with the same Apple ID you used for the original purchase. Your Pro features will be restored automatically and you can continue your <strong class="text-alimor-text">food journal daily</strong> routine.
+          </p>
+        </div>
+      </details>
+
+      <!-- Export Data -->
+      <details class="group bg-white rounded-2xl border border-gray-100 overflow-hidden">
+        <summary class="touch-target flex items-center justify-between p-5 sm:p-6 text-left font-semibold text-base sm:text-lg">
+          Can I export my food journal data?
+          <span class="flex-shrink-0 ml-4 w-8 h-8 rounded-full bg-alimor-bg flex items-center justify-center group-open:bg-alimor-purple transition-colors">
+            <svg class="w-4 h-4 text-alimor-purple group-open:text-white group-open:rotate-45 transition-all" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"/></svg>
+          </span>
+        </summary>
+        <div class="faq-content px-5 sm:px-6 pb-5 sm:pb-6">
+          <p class="text-alimor-text-light leading-relaxed text-[15px]">
+            Yes! Pro users can export their <strong class="text-alimor-text">food log</strong> and mood data as <strong class="text-alimor-text">CSV files</strong>. Share your <strong class="text-alimor-text">eating tracker</strong> data with doctors, dietitians, or therapists to help them understand your food-mood patterns.
+          </p>
+        </div>
+      </details>
+
+      <!-- IBS/Symptom Tracking -->
+      <details class="group bg-white rounded-2xl border border-gray-100 overflow-hidden">
+        <summary class="touch-target flex items-center justify-between p-5 sm:p-6 text-left font-semibold text-base sm:text-lg">
+          Can I use this food tracking app for IBS or food sensitivities?
+          <span class="flex-shrink-0 ml-4 w-8 h-8 rounded-full bg-alimor-bg flex items-center justify-center group-open:bg-alimor-purple transition-colors">
+            <svg class="w-4 h-4 text-alimor-purple group-open:text-white group-open:rotate-45 transition-all" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"/></svg>
+          </span>
+        </summary>
+        <div class="faq-content px-5 sm:px-6 pb-5 sm:pb-6">
+          <p class="text-alimor-text-light leading-relaxed text-[15px]">
+            Absolutely! Alimor's <strong class="text-alimor-text">symptom tracker</strong> helps you identify trigger foods. Log your meals daily with our <strong class="text-alimor-text">food journal</strong>, track symptoms, and discover patterns. Many users find their IBS triggers within weeks of consistent <strong class="text-alimor-text">food logging</strong>.
+          </p>
+        </div>
+      </details>
+
+      <!-- Device Sync -->
+      <details class="group bg-white rounded-2xl border border-gray-100 overflow-hidden">
+        <summary class="touch-target flex items-center justify-between p-5 sm:p-6 text-left font-semibold text-base sm:text-lg">
+          Does the eating tracker sync across devices?
+          <span class="flex-shrink-0 ml-4 w-8 h-8 rounded-full bg-alimor-bg flex items-center justify-center group-open:bg-alimor-purple transition-colors">
+            <svg class="w-4 h-4 text-alimor-purple group-open:text-white group-open:rotate-45 transition-all" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"/></svg>
+          </span>
+        </summary>
+        <div class="faq-content px-5 sm:px-6 pb-5 sm:pb-6">
+          <p class="text-alimor-text-light leading-relaxed text-[15px]">
+            Currently, Alimor stores your <strong class="text-alimor-text">food diary</strong> data locally on your device for maximum privacy. We're exploring privacy-preserving sync options for future updates. Your <strong class="text-alimor-text">meal tracker</strong> data stays with you.
+          </p>
+        </div>
+      </details>
+
+      <!-- Bug Report -->
+      <details class="group bg-white rounded-2xl border border-gray-100 overflow-hidden">
+        <summary class="touch-target flex items-center justify-between p-5 sm:p-6 text-left font-semibold text-base sm:text-lg">
+          I found a bug in the food journal app. How do I report it?
+          <span class="flex-shrink-0 ml-4 w-8 h-8 rounded-full bg-alimor-bg flex items-center justify-center group-open:bg-alimor-purple transition-colors">
+            <svg class="w-4 h-4 text-alimor-purple group-open:text-white group-open:rotate-45 transition-all" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"/></svg>
+          </span>
+        </summary>
+        <div class="faq-content px-5 sm:px-6 pb-5 sm:pb-6">
+          <p class="text-alimor-text-light leading-relaxed text-[15px]">
+            We appreciate you helping us improve! Please email us at <a href="mailto:aboyahyadev@icloud.com?subject=Alimor%20Food%20Tracker%20-%20Bug%20Report" class="text-alimor-purple hover:underline">aboyahyadev@icloud.com</a> with a description of the issue, your iOS version, and steps to reproduce it. We read every message about our <strong class="text-alimor-text">food tracking app</strong>.
+          </p>
+        </div>
+      </details>
+    </div>
+  </div>
+</section>
+
+<!-- Contact CTA Section -->
+<section class="py-16 sm:py-24 px-5 sm:px-6">
+  <div class="max-w-2xl mx-auto">
+    <div class="glass-card rounded-3xl p-8 sm:p-12 text-center relative overflow-hidden">
+      <!-- Icon -->
+      <div class="w-16 h-16 sm:w-20 sm:h-20 bg-gradient-to-br from-alimor-purple to-alimor-purple-dark rounded-full flex items-center justify-center mx-auto mb-6 shadow-lg">
+        <svg class="w-8 h-8 sm:w-10 sm:h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"/>
+        </svg>
+      </div>
+
+      <h2 class="text-2xl sm:text-3xl font-bold tracking-tight mb-4">
+        Still have questions about the food tracker?
+      </h2>
+      <p class="text-alimor-text-light text-base sm:text-lg mb-8 leading-relaxed max-w-md mx-auto">
+        We'd love to hear from you. Whether it's feedback about the meal tracker, a feature request for your food diary, or just saying hello—your message matters.
+      </p>
+
+      <a
+        href="mailto:aboyahyadev@icloud.com?subject=Alimor%20Food%20Journal%20-%20Support%20Request"
+        class="inline-flex items-center justify-center gap-3 bg-alimor-purple text-white px-8 py-4 rounded-full font-semibold text-base sm:text-lg btn-hover shadow-lg shadow-alimor-purple/25"
+      >
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
+        </svg>
+        Send Us a Message
+      </a>
+
+      <p class="text-sm text-alimor-text-light mt-6">
+        We typically respond within 24 hours
+      </p>
+
+      <!-- Background decoration -->
+      <div class="absolute -top-12 -right-12 w-32 h-32 bg-alimor-purple/5 rounded-full blur-2xl"></div>
+      <div class="absolute -bottom-12 -left-12 w-40 h-40 bg-alimor-purple-light/5 rounded-full blur-2xl"></div>
+    </div>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer class="py-10 sm:py-14 px-5 sm:px-6 bg-alimor-text text-white safe-area-bottom">
+  <div class="max-w-6xl mx-auto">
+    <div class="flex flex-col sm:flex-row items-center justify-between gap-6">
+      <div class="flex items-center gap-2.5">
+        <img src="/icon.png" alt="Alimor Food Journal" class="w-9 h-9 rounded-[10px]" />
+        <span class="text-lg font-semibold">Alimor</span>
+      </div>
+
+      <div class="flex items-center gap-6 text-sm text-gray-400">
+        <a href="/" class="hover:text-white transition-colors">Home</a>
+        <a href="/privacy" class="hover:text-white transition-colors">Privacy</a>
+        <a href="mailto:aboyahyadev@icloud.com" class="hover:text-white transition-colors">Contact</a>
+      </div>
+
+      <p class="text-gray-400 text-sm">
+        &copy; 2026 Alimor
+      </p>
+    </div>
+  </div>
+</footer>
+
+</Layout>
