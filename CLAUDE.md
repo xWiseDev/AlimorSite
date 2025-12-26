@@ -28,6 +28,8 @@ src/
   pages/
     index.astro          # Main landing page
     privacy.astro        # Privacy policy page
+    support.astro        # Support/contact page
+    terms.astro          # Terms of service page
 public/
   icon.png               # App icon
   screenshots/           # App screenshots (main.png, entry.png, progress.png, calendar.png)

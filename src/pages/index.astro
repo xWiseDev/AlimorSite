@@ -1,11 +1,74 @@
 ---
 import Layout from '../layouts/Layout.astro';
+
+// Review Schema for testimonials (enables star ratings in search results)
+const reviewSchema = {
+  "@context": "https://schema.org",
+  "@type": "Product",
+  "name": "Alimor - Food Journal & Symptom Tracker App",
+  "description": "Free food diary and meal tracker app for iOS. Track what you eat and how you feel without calorie counting.",
+  "brand": {
+    "@type": "Brand",
+    "name": "Alimor"
+  },
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": "5",
+    "reviewCount": "3",
+    "bestRating": "5",
+    "worstRating": "1"
+  },
+  "review": [
+    {
+      "@type": "Review",
+      "author": {
+        "@type": "Person",
+        "name": "Sarah M."
+      },
+      "reviewRating": {
+        "@type": "Rating",
+        "ratingValue": "5",
+        "bestRating": "5"
+      },
+      "reviewBody": "Finally, a food tracker that doesn't trigger my ED anxiety. I can see patterns without counting calories."
+    },
+    {
+      "@type": "Review",
+      "author": {
+        "@type": "Person",
+        "name": "Marcus L."
+      },
+      "reviewRating": {
+        "@type": "Rating",
+        "ratingValue": "5",
+        "bestRating": "5"
+      },
+      "reviewBody": "I figured out dairy was causing my IBS flare-ups in just 2 weeks. My doctor was impressed with the data."
+    },
+    {
+      "@type": "Review",
+      "author": {
+        "@type": "Person",
+        "name": "Jessica T."
+      },
+      "reviewRating": {
+        "@type": "Rating",
+        "ratingValue": "5",
+        "bestRating": "5"
+      },
+      "reviewBody": "Turns out pasta makes me crash every time. Now I eat it for dinner only. Game changer for my energy."
+    }
+  ]
+};
 ---
 
 <Layout
   title="Alimor - Free Food Journal & Meal Tracker App | Food Diary Without Calories"
   description="Best food journal app for daily food logging and symptom tracking. Track meals, mood & energy without calorie counting. Free food diary and eating tracker for iOS. Perfect for IBS, food sensitivities & mindful eating."
 >
+
+<!-- Review Schema for star ratings in search results -->
+<script type="application/ld+json" set:html={JSON.stringify(reviewSchema)} />
 
 <!-- Navigation -->
 <nav class="fixed top-0 w-full z-50 glass safe-area-top">
@@ -40,10 +103,10 @@ import Layout from '../layouts/Layout.astro';
           <span class="block mt-1 sm:mt-2">Are you listening?</span>
         </h1>
 
-        <!-- Subheadline -->
-        <p class="animate-fade-in-up stagger-2 text-lg sm:text-xl text-alimor-text-light mb-6 lg:mb-8 leading-relaxed max-w-xl mx-auto lg:mx-0">
-          Track what you eat and how you feel—<strong class="text-alimor-text font-medium">without calorie counting</strong>, judgment, or obsession. Finally understand your food-mood patterns.
-        </p>
+        <!-- Keyword-rich H2 for SEO -->
+        <h2 class="animate-fade-in-up stagger-2 text-lg sm:text-xl text-alimor-text-light mb-6 lg:mb-8 leading-relaxed max-w-xl mx-auto lg:mx-0 font-normal">
+          Alimor is the <strong class="text-alimor-text font-medium">food journal</strong> that helps you track what you eat and how you feel—without calorie counting, judgment, or obsession. Finally understand your food-mood patterns.
+        </h2>
 
         <!-- Mobile: Image appears here between text and CTA -->
         <div class="lg:hidden relative flex justify-center mb-8">
@@ -119,7 +182,7 @@ import Layout from '../layouts/Layout.astro';
   <div class="max-w-6xl mx-auto">
     <div class="text-center mb-12 sm:mb-16">
       <h2 class="text-3xl sm:text-4xl lg:text-[2.75rem] font-bold tracking-tight mb-4 sm:mb-5">
-        Tired of guessing why you feel tired?
+        Why Your Food Diary Should Track Symptoms, Not Calories
       </h2>
       <p class="text-lg sm:text-xl text-alimor-text-light max-w-2xl mx-auto leading-relaxed">
         Most food tracking apps obsess over calories. We focus on what actually matters:
@@ -135,10 +198,10 @@ import Layout from '../layouts/Layout.astro';
         </div>
         <h3 class="text-xl font-semibold mb-3">Energy Crashes?</h3>
         <p class="text-alimor-text-light mb-4 leading-relaxed text-[15px]">
-          You feel great in the morning, then crash after lunch. But you can't figure out why.
+          You feel great in the morning, then crash after lunch. A food diary can help you find the pattern.
         </p>
         <span class="text-alimor-purple font-semibold text-sm inline-flex items-center gap-1.5 group-hover:gap-2.5 transition-all">
-          See what drains your energy
+          Track with our food log
           <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
         </span>
       </div>
@@ -150,10 +213,10 @@ import Layout from '../layouts/Layout.astro';
         </div>
         <h3 class="text-xl font-semibold mb-3">IBS Triggers?</h3>
         <p class="text-alimor-text-light mb-4 leading-relaxed text-[15px]">
-          Your stomach bothers you after certain foods, but which ones? Too hard to track manually.
+          Your stomach bothers you after certain foods, but which ones? Our symptom tracker makes it easy to find out.
         </p>
         <span class="text-alimor-purple font-semibold text-sm inline-flex items-center gap-1.5 group-hover:gap-2.5 transition-all">
-          Spot trigger food patterns
+          Use our symptom tracker
           <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
         </span>
       </div>
@@ -165,10 +228,10 @@ import Layout from '../layouts/Layout.astro';
         </div>
         <h3 class="text-xl font-semibold mb-3">ED Recovery?</h3>
         <p class="text-alimor-text-light mb-4 leading-relaxed text-[15px]">
-          Calorie counting apps trigger anxiety. You need awareness without obsession.
+          Calorie counting apps trigger anxiety. You need a food journal focused on awareness, not obsession.
         </p>
         <span class="text-alimor-purple font-semibold text-sm inline-flex items-center gap-1.5 group-hover:gap-2.5 transition-all">
-          Track mindfully, judgment-free
+          Try our mindful food journal
           <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
         </span>
       </div>
@@ -180,7 +243,7 @@ import Layout from '../layouts/Layout.astro';
 <section id="features" class="py-16 sm:py-24 px-5 sm:px-6">
   <div class="max-w-6xl mx-auto">
     <h2 class="text-3xl sm:text-4xl lg:text-[2.75rem] font-bold text-center tracking-tight mb-14 sm:mb-20">
-      Three simple steps to understand yourself
+      How Our Food Journal & Symptom Tracker Works
     </h2>
 
     <div class="space-y-20 sm:space-y-28">
@@ -191,7 +254,7 @@ import Layout from '../layouts/Layout.astro';
             Step 1: Log
           </div>
           <h3 class="text-2xl sm:text-3xl font-bold mb-4 leading-tight">
-            Quick food logging.<br class="hidden sm:block"/>No databases. No counting.
+            Quick Food Log Entry.<br class="hidden sm:block"/>No Databases. No Counting.
           </h3>
           <p class="text-lg text-alimor-text-light mb-6 leading-relaxed">
             Just type what you ate. No searching through endless food databases.
@@ -241,7 +304,7 @@ import Layout from '../layouts/Layout.astro';
             Step 2: Notice
           </div>
           <h3 class="text-2xl sm:text-3xl font-bold mb-4 leading-tight">
-            See your patterns emerge.<br class="hidden sm:block"/>No analysis paralysis.
+            See Your Food Diary Patterns Emerge.<br class="hidden sm:block"/>No Analysis Paralysis.
           </h3>
           <p class="text-lg text-alimor-text-light mb-6 leading-relaxed">
             After a few days of logging, Alimor shows you what you're actually eating—and how it makes you feel.
@@ -277,7 +340,7 @@ import Layout from '../layouts/Layout.astro';
             Step 3: Understand
           </div>
           <h3 class="text-2xl sm:text-3xl font-bold mb-4 leading-tight">
-            Discover what actually works<br class="hidden sm:block"/>for YOUR body.
+            Discover Your Food-Mood Patterns<br class="hidden sm:block"/>for YOUR Body.
           </h3>
           <p class="text-lg text-alimor-text-light mb-6 leading-relaxed">
             Alimor connects the dots: "You feel energetic after eggs" or "Pizza makes you tired."
@@ -321,7 +384,7 @@ import Layout from '../layouts/Layout.astro';
   <div class="max-w-6xl mx-auto">
     <div class="text-center mb-12 sm:mb-16">
       <h2 class="text-3xl sm:text-4xl lg:text-[2.75rem] font-bold tracking-tight mb-4">
-        Join 2,847 people who discovered their patterns
+        Join 2,847 People Using Our Food Tracker
       </h2>
       <p class="text-lg sm:text-xl text-alimor-text-light">
         Real people, real results. No calorie obsession required.
@@ -390,7 +453,7 @@ import Layout from '../layouts/Layout.astro';
 <section class="py-16 sm:py-24 px-5 sm:px-6">
   <div class="max-w-3xl mx-auto">
     <h2 class="text-3xl sm:text-4xl font-bold text-center tracking-tight mb-10 sm:mb-14">
-      Frequently Asked Questions
+      Food Journal & Symptom Tracker FAQ
     </h2>
 
     <div class="space-y-3 sm:space-y-4">
@@ -457,10 +520,10 @@ import Layout from '../layouts/Layout.astro';
 <section class="py-16 sm:py-24 px-5 sm:px-6 bg-gradient-to-br from-alimor-purple via-alimor-purple to-alimor-purple-dark text-white relative overflow-hidden">
   <div class="max-w-3xl mx-auto text-center relative z-10">
     <h2 class="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight mb-5 sm:mb-6">
-      Ready to understand what fuels you?
+      Start Your Food Diary Journey Today
     </h2>
     <p class="text-lg sm:text-xl mb-8 sm:mb-10 opacity-90 leading-relaxed">
-      Join 2,847 people who stopped guessing and started knowing. Free forever.
+      Join 2,847 people using our food diary and symptom tracker. Free forever.
     </p>
     <a
       href="YOUR_APP_STORE_LINK_HERE"
