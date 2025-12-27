@@ -1,6 +1,35 @@
 ---
 import Layout from '../layouts/Layout.astro';
 
+// Testimonials data
+const testimonials = [
+  {
+    name: "Russell C.",
+    text: "So flexible and user friendly! When you start an entry, the time and date automatically populate to save time. The app remembers former entries for those of us who eat the same things often. Really useful app.",
+    tag: "Flexibility lover"
+  },
+  {
+    name: "Bouldin A.",
+    text: "I LOVE this app! Entries are quick & simple. I use it as a daily journal-calendar for ALL my daily activities. I track my food, water, meds, supplements & exercise. Really great app!",
+    tag: "Daily journaler"
+  },
+  {
+    name: "Anonymous User",
+    text: "After one week of using this I was able to see that I was eating a lot in the afternoons because I hadn't really stopped to give myself a midday meal. Sounds simple but I hadn't spotted that problem. Thanks!",
+    tag: "Pattern discoverer"
+  },
+  {
+    name: "Noelle R.",
+    text: "I've wanted to track what I eat, but counting calories stresses me out. This is the best non-calorie app. I can say if it's a meal, snack or junk which is helpful and motivating.",
+    tag: "Stress-free tracking"
+  },
+  {
+    name: "Ryan L.",
+    text: "Just what I was looking for—a basic log type app. Key features I love are the ability to type in my own things, no searching for items, and I have total control over what I'm logging.",
+    tag: "Control seeker"
+  }
+];
+
 // Review Schema for testimonials (enables star ratings in search results)
 const reviewSchema = {
   "@context": "https://schema.org",
@@ -14,51 +43,23 @@ const reviewSchema = {
   "aggregateRating": {
     "@type": "AggregateRating",
     "ratingValue": "5",
-    "reviewCount": "3",
+    "reviewCount": "5",
     "bestRating": "5",
     "worstRating": "1"
   },
-  "review": [
-    {
-      "@type": "Review",
-      "author": {
-        "@type": "Person",
-        "name": "Sarah M."
-      },
-      "reviewRating": {
-        "@type": "Rating",
-        "ratingValue": "5",
-        "bestRating": "5"
-      },
-      "reviewBody": "Finally, a food tracker that doesn't trigger my ED anxiety. I can see patterns without counting calories."
+  "review": testimonials.map(t => ({
+    "@type": "Review",
+    "author": {
+      "@type": "Person",
+      "name": t.name
     },
-    {
-      "@type": "Review",
-      "author": {
-        "@type": "Person",
-        "name": "Marcus L."
-      },
-      "reviewRating": {
-        "@type": "Rating",
-        "ratingValue": "5",
-        "bestRating": "5"
-      },
-      "reviewBody": "I figured out dairy was causing my IBS flare-ups in just 2 weeks. My doctor was impressed with the data."
+    "reviewRating": {
+      "@type": "Rating",
+      "ratingValue": "5",
+      "bestRating": "5"
     },
-    {
-      "@type": "Review",
-      "author": {
-        "@type": "Person",
-        "name": "Jessica T."
-      },
-      "reviewRating": {
-        "@type": "Rating",
-        "ratingValue": "5",
-        "bestRating": "5"
-      },
-      "reviewBody": "Turns out pasta makes me crash every time. Now I eat it for dinner only. Game changer for my energy."
-    }
-  ]
+    "reviewBody": t.text
+  }))
 };
 ---
 
@@ -380,8 +381,8 @@ const reviewSchema = {
 </section>
 
 <!-- Testimonials Section -->
-<section class="py-16 sm:py-24 px-5 sm:px-6 bg-white">
-  <div class="max-w-6xl mx-auto">
+<section class="py-16 sm:py-24 bg-white overflow-hidden">
+  <div class="max-w-6xl mx-auto px-5 sm:px-6">
     <div class="text-center mb-12 sm:mb-16">
       <h2 class="text-3xl sm:text-4xl lg:text-[2.75rem] font-bold tracking-tight mb-4">
         Join 2,847 People Using Our Food Tracker
@@ -390,64 +391,106 @@ const reviewSchema = {
         Real people, real results. No calorie obsession required.
       </p>
     </div>
+  </div>
 
-    <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-6">
-      <!-- Testimonial 1 -->
-      <div class="bg-gradient-to-b from-alimor-bg to-white rounded-3xl p-6 sm:p-8 border border-gray-100">
-        <div class="flex items-center gap-0.5 mb-4">
-          <svg class="w-5 h-5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
-          <svg class="w-5 h-5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
-          <svg class="w-5 h-5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
-          <svg class="w-5 h-5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
-          <svg class="w-5 h-5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+  <!-- Carousel Container -->
+  <div class="testimonial-carousel group">
+    <div class="testimonial-track">
+      {/* First set of testimonials */}
+      {testimonials.map((testimonial) => (
+        <div class="testimonial-card">
+          <div class="flex items-center gap-0.5 mb-4">
+            {[...Array(5)].map(() => (
+              <svg class="w-5 h-5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+            ))}
+          </div>
+          <p class="text-[15px] sm:text-base mb-5 text-alimor-text leading-relaxed">
+            "{testimonial.text}"
+          </p>
+          <div>
+            <p class="font-semibold text-sm">{testimonial.name}</p>
+            <p class="text-xs text-alimor-text-light mt-0.5">{testimonial.tag}</p>
+          </div>
         </div>
-        <p class="text-[15px] sm:text-base mb-5 text-alimor-text leading-relaxed">
-          "Finally, a food tracker that doesn't trigger my ED anxiety. I can see patterns without counting calories."
-        </p>
-        <div>
-          <p class="font-semibold text-sm">Sarah M.</p>
-          <p class="text-xs text-alimor-text-light mt-0.5">Eating disorder recovery</p>
+      ))}
+      {/* Duplicate set for seamless loop */}
+      {testimonials.map((testimonial) => (
+        <div class="testimonial-card" aria-hidden="true">
+          <div class="flex items-center gap-0.5 mb-4">
+            {[...Array(5)].map(() => (
+              <svg class="w-5 h-5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+            ))}
+          </div>
+          <p class="text-[15px] sm:text-base mb-5 text-alimor-text leading-relaxed">
+            "{testimonial.text}"
+          </p>
+          <div>
+            <p class="font-semibold text-sm">{testimonial.name}</p>
+            <p class="text-xs text-alimor-text-light mt-0.5">{testimonial.tag}</p>
+          </div>
         </div>
-      </div>
-
-      <!-- Testimonial 2 -->
-      <div class="bg-gradient-to-b from-alimor-bg to-white rounded-3xl p-6 sm:p-8 border border-gray-100">
-        <div class="flex items-center gap-0.5 mb-4">
-          <svg class="w-5 h-5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
-          <svg class="w-5 h-5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
-          <svg class="w-5 h-5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
-          <svg class="w-5 h-5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
-          <svg class="w-5 h-5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
-        </div>
-        <p class="text-[15px] sm:text-base mb-5 text-alimor-text leading-relaxed">
-          "I figured out dairy was causing my IBS flare-ups in just 2 weeks. My doctor was impressed with the data."
-        </p>
-        <div>
-          <p class="font-semibold text-sm">Marcus L.</p>
-          <p class="text-xs text-alimor-text-light mt-0.5">IBS symptom tracking</p>
-        </div>
-      </div>
-
-      <!-- Testimonial 3 -->
-      <div class="bg-gradient-to-b from-alimor-bg to-white rounded-3xl p-6 sm:p-8 border border-gray-100 sm:col-span-2 lg:col-span-1">
-        <div class="flex items-center gap-0.5 mb-4">
-          <svg class="w-5 h-5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
-          <svg class="w-5 h-5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
-          <svg class="w-5 h-5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
-          <svg class="w-5 h-5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
-          <svg class="w-5 h-5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
-        </div>
-        <p class="text-[15px] sm:text-base mb-5 text-alimor-text leading-relaxed">
-          "Turns out pasta makes me crash every time. Now I eat it for dinner only. Game changer for my energy."
-        </p>
-        <div>
-          <p class="font-semibold text-sm">Jessica T.</p>
-          <p class="text-xs text-alimor-text-light mt-0.5">Energy pattern seeker</p>
-        </div>
-      </div>
+      ))}
     </div>
   </div>
 </section>
+
+<style>
+  .testimonial-carousel {
+    width: 100%;
+    overflow: hidden;
+    -webkit-mask-image: linear-gradient(to right, transparent, black 5%, black 95%, transparent);
+    mask-image: linear-gradient(to right, transparent, black 5%, black 95%, transparent);
+  }
+
+  .testimonial-track {
+    display: flex;
+    gap: 1.25rem;
+    width: max-content;
+    animation: scroll 40s linear infinite;
+  }
+
+  .testimonial-carousel:hover .testimonial-track {
+    animation-play-state: paused;
+  }
+
+  .testimonial-card {
+    flex-shrink: 0;
+    width: 320px;
+    background: linear-gradient(to bottom, #F8F7FC, white);
+    border-radius: 1.5rem;
+    padding: 1.5rem;
+    border: 1px solid #f3f4f6;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+
+  .testimonial-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 10px 40px -10px rgba(124, 92, 219, 0.2);
+  }
+
+  @media (min-width: 640px) {
+    .testimonial-card {
+      width: 380px;
+      padding: 2rem;
+    }
+  }
+
+  @keyframes scroll {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(-50%);
+    }
+  }
+
+  /* Respect reduced motion preference */
+  @media (prefers-reduced-motion: reduce) {
+    .testimonial-track {
+      animation: none;
+    }
+  }
+</style>
 
 <!-- FAQ Section -->
 <section class="py-16 sm:py-24 px-5 sm:px-6">

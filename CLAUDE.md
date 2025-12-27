@@ -38,6 +38,14 @@ public/
   robots.txt             # Search engine crawling rules
 ```
 
+### Layout Component Props
+
+Pages using `Layout.astro` must provide:
+- `title` (required) - Page title for `<title>` and OG tags
+- `description` (required) - Meta description
+- `keywords` (optional) - SEO keywords (has defaults)
+- `ogImage` (optional) - Social sharing image path (defaults to `/screenshots/main.png`)
+
 ### Custom Tailwind Colors
 
 Defined in `tailwind.config.mjs`:
@@ -48,12 +56,13 @@ Defined in `tailwind.config.mjs`:
 
 ### Key Implementation Notes
 
-- **SEO**: Layout.astro includes structured data schemas (MobileApplication, Organization), Open Graph tags, and Twitter cards
+- **SEO**: Layout.astro includes structured data schemas (MobileApplication, Organization), Open Graph tags, and Twitter cards. The index page also has a Review schema for star ratings in search results.
 - **Global CSS classes** defined in Layout.astro:
-  - `.animate-float`, `.animate-fade-in-up`, `.animate-scale-in` - Animations
+  - `.animate-float`, `.animate-fade-in-up`, `.animate-scale-in`, `.animate-marquee` - Animations
   - `.glass`, `.glass-card` - Glassmorphism effects
   - `.stagger-1` through `.stagger-4` - Animation delays
   - `.screenshot-shadow` - Apple-style shadow for screenshots
   - `.btn-hover`, `.touch-target` - Interactive elements
 - **App Store ID**: `6756018932` (used in apple-itunes-app meta tag)
 - **Sitemap**: Auto-generated via `@astrojs/sitemap` integration
+- **App Store Link**: Links in index.astro use placeholder `YOUR_APP_STORE_LINK_HERE` - replace with `https://apps.apple.com/app/id6756018932` when ready to launch
