@@ -65,4 +65,4 @@ Defined in `tailwind.config.mjs`:
   - `.btn-hover`, `.touch-target` - Interactive elements
 - **App Store ID**: `6756018932` (used in apple-itunes-app meta tag)
 - **Sitemap**: Auto-generated via `@astrojs/sitemap` integration
-- **App Store Link**: Links in index.astro use placeholder `YOUR_APP_STORE_LINK_HERE` - replace with `https://apps.apple.com/app/id6756018932` when ready to launch
+- **App Store Link**: `https://apps.apple.com/app/food-journal-alimor/id6756018932`
