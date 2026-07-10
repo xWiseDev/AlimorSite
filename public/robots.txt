@@ -1,0 +1,9 @@
+# robots.txt for Alimor - Food Journal App
+User-agent: *
+Allow: /
+
+# Sitemaps
+Sitemap: https://alimor.app/sitemap-index.xml
+
+# Crawl delay for politeness
+Crawl-delay: 1

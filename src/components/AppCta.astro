@@ -1,0 +1,42 @@
+---
+interface Props {
+  variant?: "inline" | "endcap";
+  headline?: string;
+}
+
+const { variant = "endcap", headline = "Ready to find your food-mood patterns?" } = Astro.props;
+const appStoreUrl = "https://apps.apple.com/app/food-journal-alimor/id6756018932";
+---
+
+{variant === "inline" ? (
+  <aside class="not-prose my-10 glass-card rounded-2xl p-5 sm:p-6 flex items-center gap-4 sm:gap-5">
+    <img src="/icon.png" alt="Alimor app icon" class="w-14 h-14 sm:w-16 sm:h-16 rounded-2xl shadow-sm flex-shrink-0" />
+    <div class="flex-1 min-w-0">
+      <p class="font-semibold text-alimor-text text-[15px] sm:text-base leading-snug mb-0.5">
+        Track this in 5 seconds a meal
+      </p>
+      <p class="text-alimor-text-light text-sm leading-snug">
+        Alimor is a free food &amp; symptom journal — no calorie counting.
+      </p>
+    </div>
+    <a href={appStoreUrl} class="touch-target flex-shrink-0 flex items-center btn-hover">
+      <img src="/Download_on_the_App_Store_Badge.svg" alt="Download on the App Store" class="h-9 sm:h-10" />
+    </a>
+  </aside>
+) : (
+  <aside class="not-prose mt-14 relative overflow-hidden rounded-3xl bg-gradient-to-br from-alimor-purple via-alimor-purple to-alimor-purple-dark text-white p-8 sm:p-10 text-center">
+    <div class="absolute -top-16 -right-16 w-56 h-56 rounded-full bg-white/10 blur-2xl" aria-hidden="true"></div>
+    <div class="absolute -bottom-20 -left-10 w-64 h-64 rounded-full bg-white/5 blur-2xl" aria-hidden="true"></div>
+    <div class="relative z-10">
+      <img src="/icon.png" alt="Alimor app icon" class="w-16 h-16 sm:w-20 sm:h-20 rounded-[18px] sm:rounded-[22px] shadow-lg mx-auto mb-5" />
+      <p class="text-2xl sm:text-3xl font-bold tracking-tight mb-3">{headline}</p>
+      <p class="text-white/85 text-base sm:text-lg leading-relaxed max-w-md mx-auto mb-7">
+        Log what you eat and how you feel in seconds. No calorie counting, no judgment — just awareness.
+      </p>
+      <a href={appStoreUrl} class="touch-target inline-flex items-center justify-center btn-hover">
+        <img src="/Download_on_the_App_Store_Badge.svg" alt="Download on the App Store" class="h-[52px] sm:h-14" />
+      </a>
+      <p class="text-white/70 text-sm mt-5">Free to start &bull; No account required &bull; Your data stays on your device</p>
+    </div>
+  </aside>
+)}

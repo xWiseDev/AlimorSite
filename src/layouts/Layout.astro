@@ -1,0 +1,284 @@
+---
+interface Props {
+  title: string;
+  description: string;
+  keywords?: string;
+  ogImage?: string;
+  ogType?: "website" | "article";
+  publishedTime?: string;
+  modifiedTime?: string;
+}
+
+const {
+  title,
+  description,
+  keywords = "food journal, food diary, meal tracker, food log, symptom tracker, food tracking app, eating tracker, food journal daily, mindful eating, macros tracker, nutrition tracker, food tracker",
+  ogImage = "/og-image.png",
+  ogType = "website",
+  publishedTime,
+  modifiedTime
+} = Astro.props;
+
+const canonicalURL = new URL(Astro.url.pathname, Astro.site);
+const ogImageURL = new URL(ogImage, Astro.site);
+
+// Structured Data for Mobile Application
+const appSchema = {
+  "@context": "https://schema.org",
+  "@type": "MobileApplication",
+  "name": "Alimor",
+  "operatingSystem": "iOS",
+  "applicationCategory": "HealthApplication",
+  "description": "Food journal and meal tracker app without calorie counting. Track what you eat and how you feel to discover food-mood patterns.",
+  "offers": {
+    "@type": "Offer",
+    "price": "0",
+    "priceCurrency": "USD"
+  },
+  "screenshot": new URL("/screenshots/main.png", Astro.site).href,
+  "featureList": "Food logging, Mood tracking, Symptom tracker, Food diary, Pattern insights, CSV export"
+};
+
+// Organization Schema
+const orgSchema = {
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "Alimor",
+  "url": Astro.site,
+  "logo": new URL("/icon.png", Astro.site).href,
+  "description": "Mindful food journal and eating tracker app",
+  "founder": {
+    "@type": "Person",
+    "name": "El Mehdi"
+  },
+  "sameAs": [
+    "https://apps.apple.com/app/food-journal-alimor/id6756018932"
+  ]
+};
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+
+    <!-- Primary Meta Tags -->
+    <title>{title}</title>
+    <meta name="title" content={title} />
+    <meta name="description" content={description} />
+    <meta name="keywords" content={keywords} />
+    <meta name="author" content="Alimor" />
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+    <link rel="canonical" href={canonicalURL} />
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="/icon.png" />
+    <link rel="apple-touch-icon" href="/icon.png" />
+
+    <!-- RSS -->
+    <link rel="alternate" type="application/rss+xml" title="Alimor Blog" href={new URL("/rss.xml", Astro.site)} />
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content={ogType} />
+    {publishedTime && <meta property="article:published_time" content={publishedTime} />}
+    {modifiedTime && <meta property="article:modified_time" content={modifiedTime} />}
+    <meta property="og:url" content={canonicalURL} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content={ogImageURL} />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:site_name" content="Alimor" />
+    <meta property="og:locale" content="en_US" />
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:url" content={canonicalURL} />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={ogImageURL} />
+
+    <!-- App Store Smart Banner -->
+    <meta name="apple-itunes-app" content="app-id=6756018932" />
+    <meta name="theme-color" content="#7C5CDB" />
+    <meta name="msapplication-TileColor" content="#7C5CDB" />
+
+    <!-- Structured Data -->
+    <script type="application/ld+json" set:html={JSON.stringify(appSchema)} />
+    <script type="application/ld+json" set:html={JSON.stringify(orgSchema)} />
+
+    <style is:global>
+      /* Apple SF Pro-inspired system font stack */
+      :root {
+        --font-system: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'SF Pro Text', 'Helvetica Neue', 'Segoe UI', Roboto, sans-serif;
+        --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+        --ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
+      }
+
+      html {
+        scroll-behavior: smooth;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+        text-rendering: optimizeLegibility;
+      }
+
+      body {
+        font-family: var(--font-system);
+        overflow-x: hidden;
+      }
+
+      /* Refined floating animation */
+      @keyframes float {
+        0%, 100% { transform: translateY(0px) scale(1); }
+        50% { transform: translateY(-12px) scale(1.01); }
+      }
+
+      @keyframes fadeInUp {
+        from {
+          opacity: 0;
+          transform: translateY(24px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      @keyframes scaleIn {
+        from {
+          opacity: 0;
+          transform: scale(0.95);
+        }
+        to {
+          opacity: 1;
+          transform: scale(1);
+        }
+      }
+
+      @keyframes shimmer {
+        0% { background-position: -200% 0; }
+        100% { background-position: 200% 0; }
+      }
+
+      .animate-float {
+        animation: float 5s var(--ease-out-expo) infinite;
+      }
+
+      .animate-fade-in-up {
+        animation: fadeInUp 0.8s var(--ease-out-expo) forwards;
+      }
+
+      .animate-scale-in {
+        animation: scaleIn 0.6s var(--ease-out-expo) forwards;
+      }
+
+      /* Staggered animations */
+      .stagger-1 { animation-delay: 0.1s; opacity: 0; }
+      .stagger-2 { animation-delay: 0.2s; opacity: 0; }
+      .stagger-3 { animation-delay: 0.3s; opacity: 0; }
+      .stagger-4 { animation-delay: 0.4s; opacity: 0; }
+
+      /* Apple-style glassmorphism */
+      .glass {
+        background: rgba(255, 255, 255, 0.72);
+        backdrop-filter: saturate(180%) blur(20px);
+        -webkit-backdrop-filter: saturate(180%) blur(20px);
+        border-bottom: 0.5px solid rgba(0, 0, 0, 0.1);
+      }
+
+      .glass-card {
+        background: rgba(255, 255, 255, 0.6);
+        backdrop-filter: blur(40px);
+        -webkit-backdrop-filter: blur(40px);
+        border: 1px solid rgba(255, 255, 255, 0.5);
+        box-shadow:
+          0 2px 8px rgba(0, 0, 0, 0.04),
+          0 8px 24px rgba(0, 0, 0, 0.06);
+      }
+
+      /* Improved touch targets */
+      .touch-target {
+        min-height: 44px;
+        min-width: 44px;
+      }
+
+      /* Refined button hover states */
+      .btn-hover {
+        transition: all 0.3s var(--ease-out-expo);
+      }
+
+      .btn-hover:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 8px 24px rgba(124, 92, 219, 0.25);
+      }
+
+      .btn-hover:active {
+        transform: translateY(0) scale(0.98);
+      }
+
+      /* Screenshot shadows - Apple style */
+      .screenshot-shadow {
+        box-shadow:
+          0 4px 8px rgba(0, 0, 0, 0.04),
+          0 12px 32px rgba(0, 0, 0, 0.08),
+          0 32px 64px rgba(0, 0, 0, 0.12);
+      }
+
+      /* FAQ details styling */
+      details summary::-webkit-details-marker {
+        display: none;
+      }
+
+      details summary {
+        cursor: pointer;
+        -webkit-tap-highlight-color: transparent;
+      }
+
+      /* Smooth content reveal */
+      details[open] .faq-content {
+        animation: fadeInUp 0.4s var(--ease-out-expo) forwards;
+      }
+
+      /* Mobile-optimized text selection */
+      ::selection {
+        background: rgba(124, 92, 219, 0.2);
+      }
+
+      /* Infinite scroll marquee */
+      @keyframes marquee {
+        0% { transform: translateX(0); }
+        100% { transform: translateX(-50%); }
+      }
+
+      .animate-marquee {
+        animation: marquee 60s linear infinite;
+      }
+
+      .animate-marquee:hover {
+        animation-play-state: paused;
+      }
+
+      /* Reduced motion preference */
+      @media (prefers-reduced-motion: reduce) {
+        *, *::before, *::after {
+          animation-duration: 0.01ms !important;
+          animation-iteration-count: 1 !important;
+          transition-duration: 0.01ms !important;
+        }
+      }
+
+      /* Safe area padding for notched devices */
+      .safe-area-top {
+        padding-top: env(safe-area-inset-top);
+      }
+
+      .safe-area-bottom {
+        padding-bottom: env(safe-area-inset-bottom);
+      }
+    </style>
+  </head>
+  <body class="bg-alimor-bg text-alimor-text antialiased">
+    <slot />
+  </body>
+</html>

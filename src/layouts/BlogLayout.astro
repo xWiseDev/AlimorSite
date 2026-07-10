@@ -1,0 +1,218 @@
+---
+import Layout from "./Layout.astro";
+import AppCta from "../components/AppCta.astro";
+import type { CollectionEntry } from "astro:content";
+
+interface Props {
+  post: CollectionEntry<"blog">;
+  readingMinutes: number;
+}
+
+const { post, readingMinutes } = Astro.props;
+const { title, description, pubDate, updatedDate, heroImage, tags, faqs } = post.data;
+
+const formatDate = (d: Date) =>
+  d.toLocaleDateString("en-US", { year: "numeric", month: "long", day: "numeric" });
+
+const postUrl = new URL(`/blog/${post.slug}/`, Astro.site);
+
+// Keep the <title> within the ~60-char SERP display limit: only brand-suffix short titles
+const pageTitle = title.length <= 46 ? `${title} | Alimor Blog` : title;
+
+const articleSchema = {
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": title,
+  "description": description,
+  "url": postUrl.href,
+  "datePublished": pubDate.toISOString(),
+  "dateModified": (updatedDate ?? pubDate).toISOString(),
+  "image": new URL(heroImage ?? "/og-image.png", Astro.site).href,
+  "author": {
+    "@type": "Person",
+    "name": "El Mehdi",
+    "url": new URL("/", Astro.site).href
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Alimor",
+    "logo": {
+      "@type": "ImageObject",
+      "url": new URL("/icon.png", Astro.site).href
+    }
+  },
+  "mainEntityOfPage": { "@type": "WebPage", "@id": postUrl.href }
+};
+
+const breadcrumbSchema = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Home", "item": new URL("/", Astro.site).href },
+    { "@type": "ListItem", "position": 2, "name": "Blog", "item": new URL("/blog/", Astro.site).href },
+    { "@type": "ListItem", "position": 3, "name": title, "item": postUrl.href }
+  ]
+};
+
+const faqSchema = faqs?.length
+  ? {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": faqs.map((f) => ({
+        "@type": "Question",
+        "name": f.question,
+        "acceptedAnswer": { "@type": "Answer", "text": f.answer }
+      }))
+    }
+  : null;
+---
+
+<Layout
+  title={pageTitle}
+  description={description}
+  ogImage={heroImage}
+  ogType="article"
+  publishedTime={pubDate.toISOString()}
+  modifiedTime={(updatedDate ?? pubDate).toISOString()}
+>
+  <script type="application/ld+json" set:html={JSON.stringify(articleSchema)} />
+  <script type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)} />
+  {faqSchema && <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />}
+
+  <!-- Reading progress bar -->
+  <div id="reading-progress" class="fixed top-0 left-0 h-[3px] w-0 z-[60] bg-gradient-to-r from-alimor-purple-light to-alimor-purple" aria-hidden="true"></div>
+
+  <div class="min-h-screen flex flex-col">
+
+  <!-- Navigation -->
+  <nav class="fixed top-0 w-full z-50 glass safe-area-top">
+    <div class="max-w-6xl mx-auto px-5 sm:px-6 py-3 sm:py-4 flex items-center justify-between">
+      <a href="/" class="flex items-center gap-2.5">
+        <img src="/icon.png" alt="Alimor" class="w-9 h-9 sm:w-10 sm:h-10 rounded-[10px] sm:rounded-xl shadow-sm" />
+        <span class="text-lg sm:text-xl font-semibold text-alimor-purple tracking-tight">Alimor</span>
+      </a>
+      <a
+        href="https://apps.apple.com/app/food-journal-alimor/id6756018932"
+        class="touch-target flex items-center justify-center btn-hover"
+      >
+        <img src="/Download_on_the_App_Store_Badge.svg" alt="Download on the App Store" class="h-9 sm:h-10" />
+      </a>
+    </div>
+  </nav>
+
+  <!-- Article hero -->
+  <header class="pt-28 sm:pt-36 pb-10 sm:pb-14 px-5 sm:px-6 relative overflow-hidden">
+    <div class="absolute -top-40 -left-32 w-[480px] h-[480px] rounded-full bg-alimor-purple/10 blur-3xl pointer-events-none" aria-hidden="true"></div>
+    <div class="absolute top-20 -right-40 w-[520px] h-[520px] rounded-full bg-alimor-purple-light/10 blur-3xl pointer-events-none" aria-hidden="true"></div>
+
+    <div class="max-w-3xl mx-auto relative z-10">
+      <!-- Breadcrumbs -->
+      <nav aria-label="Breadcrumb" class="animate-fade-in-up stagger-1 mb-6 text-sm text-alimor-text-light">
+        <ol class="flex items-center gap-2 flex-wrap">
+          <li><a href="/" class="hover:text-alimor-purple transition-colors">Home</a></li>
+          <li aria-hidden="true">›</li>
+          <li><a href="/blog/" class="hover:text-alimor-purple transition-colors">Blog</a></li>
+          <li aria-hidden="true">›</li>
+          <li class="text-alimor-text" aria-current="page">{title.length > 40 ? title.slice(0, 40) + "…" : title}</li>
+        </ol>
+      </nav>
+
+      {tags.length > 0 && (
+        <div class="animate-fade-in-up stagger-1 flex gap-2 mb-5">
+          {tags.map((tag) => (
+            <span class="inline-block bg-alimor-purple/10 text-alimor-purple text-xs sm:text-sm font-semibold px-3.5 py-1.5 rounded-full">
+              {tag}
+            </span>
+          ))}
+        </div>
+      )}
+
+      <h1 class="animate-fade-in-up stagger-2 text-[2rem] sm:text-[2.75rem] lg:text-5xl font-bold leading-[1.15] tracking-tight mb-6">
+        {title}
+      </h1>
+
+      <div class="animate-fade-in-up stagger-3 flex items-center gap-4 text-sm sm:text-[15px] text-alimor-text-light">
+        <img src="/icon.png" alt="" class="w-10 h-10 rounded-xl shadow-sm" />
+        <div>
+          <p class="font-semibold text-alimor-text">El Mehdi <span class="font-normal text-alimor-text-light">· Maker of Alimor</span></p>
+          <p>
+            <time datetime={pubDate.toISOString()}>{formatDate(pubDate)}</time>
+            {updatedDate && (
+              <span> · Updated <time datetime={updatedDate.toISOString()}>{formatDate(updatedDate)}</time></span>
+            )}
+            <span> · {readingMinutes} min read</span>
+          </p>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Article body -->
+  <main class="flex-1 px-5 sm:px-6 pb-16 sm:pb-24">
+    <article class="prose prose-alimor mx-auto animate-fade-in-up stagger-4">
+      <slot />
+
+      {faqs && faqs.length > 0 && (
+        <section class="not-prose mt-14">
+          <h2 class="text-2xl sm:text-3xl font-bold tracking-tight mb-6">Frequently Asked Questions</h2>
+          <div class="space-y-3">
+            {faqs.map((f) => (
+              <details class="group bg-white rounded-2xl border border-gray-100 overflow-hidden">
+                <summary class="touch-target flex items-center justify-between p-5 text-left font-semibold text-base">
+                  {f.question}
+                  <span class="flex-shrink-0 ml-4 w-8 h-8 rounded-full bg-alimor-bg flex items-center justify-center group-open:bg-alimor-purple transition-colors">
+                    <svg class="w-4 h-4 text-alimor-purple group-open:text-white group-open:rotate-45 transition-all" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"/></svg>
+                  </span>
+                </summary>
+                <div class="faq-content px-5 pb-5">
+                  <p class="text-alimor-text-light leading-relaxed text-[15px]">{f.answer}</p>
+                </div>
+              </details>
+            ))}
+          </div>
+        </section>
+      )}
+
+      <AppCta variant="endcap" />
+
+      <p class="not-prose mt-10 text-sm text-alimor-text-light leading-relaxed border-t border-gray-200 pt-6">
+        This article is for general information only and isn't medical advice. For diagnosis or treatment,
+        please work with your doctor or a registered dietitian.
+      </p>
+    </article>
+  </main>
+
+  <!-- Footer -->
+  <footer class="py-10 px-5 sm:px-6 bg-alimor-text text-white safe-area-bottom">
+    <div class="max-w-6xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4 text-sm text-gray-400">
+      <div class="flex items-center gap-2.5">
+        <img src="/icon.png" alt="Alimor" class="w-8 h-8 rounded-lg" />
+        <span class="text-white font-semibold">Alimor</span>
+      </div>
+      <div class="flex items-center gap-5">
+        <a href="/blog/" class="hover:text-white transition-colors">Blog</a>
+        <a href="/support/" class="hover:text-white transition-colors">Support</a>
+        <a href="/privacy/" class="hover:text-white transition-colors">Privacy</a>
+      </div>
+      <p>&copy; 2026 Alimor</p>
+    </div>
+  </footer>
+
+  </div>
+
+  <script>
+    const bar = document.getElementById("reading-progress");
+    const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    if (bar && !reduceMotion) {
+      const update = () => {
+        const doc = document.documentElement;
+        const max = doc.scrollHeight - doc.clientHeight;
+        bar.style.width = max > 0 ? `${(doc.scrollTop / max) * 100}%` : "0%";
+      };
+      document.addEventListener("scroll", update, { passive: true });
+      update();
+    } else if (bar) {
+      bar.remove();
+    }
+  </script>
+</Layout>
