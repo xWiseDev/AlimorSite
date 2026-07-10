@@ -102,7 +102,7 @@ That sounds slow, but compare it to the alternative most people actually do: yea
 
 A food diary is a self-awareness tool, not a diagnosis. See a doctor first if you haven't been formally diagnosed with IBS — other conditions (celiac disease, IBD, lactose intolerance) can look similar and need different care. And go promptly if you notice red-flag symptoms like unintended weight loss, blood in your stool, fever, or symptoms that wake you at night.
 
-If your diary points at FODMAPs, ask about working with a registered dietitian before attempting a low-FODMAP elimination — it's effective but restrictive, and it's designed to be done with guidance, in phases, not forever. Your completed food diary will make that work dramatically faster: you'll walk in with weeks of real data instead of guesses.
+If your diary points at FODMAPs, ask about working with a registered dietitian before attempting a low-FODMAP elimination — it's effective but restrictive, and it's designed to be done with guidance, in phases, not forever. (Our [elimination diet guide](/blog/elimination-diet-food-diary-guide/) covers the full protocol, including the reintroduction phase most people skip.) Your completed food diary will make that work dramatically faster: you'll walk in with weeks of real data instead of guesses.
 
 ## Start with tonight's dinner
 
